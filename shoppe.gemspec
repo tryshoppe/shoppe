@@ -13,15 +13,15 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "rails", "~> 4.0.1"
+  s.add_dependency "rails", ">= 4.0.1"
   s.add_dependency "bcrypt-ruby", "~> 3.1.2"
-  s.add_dependency "ransack", "~> 1.0.0"
+  s.add_dependency "ransack", ">= 1.0.0"
   s.add_dependency "kaminari", ">= 0.14.1", "< 0.16"
   s.add_dependency "haml", "~> 4.0.3"  
   s.add_dependency "dynamic_form", "~> 1.1.4"
-  s.add_dependency "jquery-rails", "~> 3.0.4"
-  s.add_dependency "coffee-rails", "~> 4.0.0"
-  s.add_dependency "sass-rails", "~> 4.0.0"
+  s.add_dependency "jquery-rails", ">= 3.0.4"
+  s.add_dependency "coffee-rails", ">= 4.0.0"
+  s.add_dependency "sass-rails", ">= 4.0.0"
   s.add_dependency "uglifier", ">= 2.2.0"
 
   s.add_dependency "nifty-key-value-store", "~> 1.0.0"
