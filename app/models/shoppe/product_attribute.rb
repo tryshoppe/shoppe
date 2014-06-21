@@ -15,7 +15,7 @@ module Shoppe
     scope :searchable, -> { where(:searchable => true) }
     
     # All attributes which are public
-    scope :public, -> { where(:public => true) }
+    scope :publicly_visible, -> { where(:public => true) }
   
     # Return the the available options as a hash
     #

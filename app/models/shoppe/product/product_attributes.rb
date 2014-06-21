@@ -11,8 +11,9 @@ module Shoppe
     # After saving automatically try to update the product attributes based on the
     # the contents of the product_attributes_array array.
     after_save do
-      return unless product_attributes_array.is_a?(Array)
-      self.product_attributes.update_from_array(product_attributes_array)
+      if product_attributes_array.is_a?(Array)
+        self.product_attributes.update_from_array(product_attributes_array)
+      end
     end
   
   end
