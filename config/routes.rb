@@ -4,6 +4,10 @@ Shoppe::Engine.routes.draw do
   resources :product_categories
   resources :products do
     resources :variants
+    collection do
+      get :import
+      post :import
+    end
   end
   resources :orders do
     post :search, :on => :collection

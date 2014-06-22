@@ -1,0 +1,16 @@
+- @page_title = "Products"
+
+= content_for :header do
+  %h2.products Import Products
+
+= form_for "import", :url => import_products_path, :html => {:multipart => true} do |f|
+  = f.error_messages
+  
+  = field_set_tag "File Upload" do
+    %dl
+      %dt= f.label :file, "File - must be csv, xls or xlsx"
+      %dd= f.file_field :file
+
+  %p.submit
+    = f.submit "Import", :class => "button green"
+    = link_to "Cancel", :products, :class => "button"

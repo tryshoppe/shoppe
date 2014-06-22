@@ -36,6 +36,17 @@ module Shoppe
       @product.destroy
       redirect_to :products, :flash => {:notice => "Product has been removed successfully"}
     end
+
+    def import
+      if request.post?
+        if params[:import].nil?
+          redirect_to import_products_path, :flash => {:alert => "No file was uploaded"}  
+        else
+          Shoppe::Product.import(params[:import][:file])
+          redirect_to products_path, :flash => {:notice => "Products imported successfully"}
+        end
+      end
+    end
     
     private
   
