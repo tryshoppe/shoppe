@@ -1,3 +1,5 @@
+require 'roo'
+
 module Shoppe
   class Product < ActiveRecord::Base
   
@@ -104,5 +106,63 @@ module Shoppe
       where(:id => product_ids)
     end
   
+    # Imports products from a spreadsheet file
+    # Example:
+    #
+    #   Shoppe:Product.import("path/to/file.csv")
+    def self.import(file)
+      spreadsheet = open_spreadsheet(file)
+      spreadsheet.default_sheet = spreadsheet.sheets.first
+      header = spreadsheet.row(1)
+      (2..spreadsheet.last_row).each do |i|
+        row = Hash[[header, spreadsheet.row(i)].transpose]
+
+        # Don't import products where the name is blank
+        unless row["name"].nil?
+          if product = find_by(name: row["name"])
+            # Dont import products with the same name but update quantities if they're not the same
+            qty = row["qty"].to_i
+            if qty > 0 && qty != product.stock
+              product.stock_level_adjustments.create!(description: "Import", adjustment: qty)
+            end
+          else
+            product = new
+            product.name = row["name"]
+            product.sku = row["sku"]
+            product.description = row["description"]
+            product.short_description = row["short_description"]
+            product.weight = row["weight"]
+            product.price = row["price"].nil? ? 0 : row["price"]
+
+            product.product_category_id = begin
+              if Shoppe::ProductCategory.find_by(name: row["_category"]).present?
+                # Find and set the category
+                Shoppe::ProductCategory.find_by(name: row["_category"]).id
+              else
+                # Create the category
+                Shoppe::ProductCategory.create(name: row["_category"]).id
+              end
+            end
+
+            product.save!
+
+            # Create quantities
+            if row["qty"] > 0
+              product.stock_level_adjustments.create!(description: "Import", adjustment: row["qty"])
+            end
+          end
+        end
+      end
+    end
+
+    def self.open_spreadsheet(file)
+      case File.extname(file.original_filename)
+      when ".csv" then Roo::CSV.new(file.path)
+      when ".xls" then Roo::Excel.new(file.path)
+      when ".xlsx" then Roo::Excelx.new(file.path)
+      else raise "Unknown file type: #{file.original_filename}"
+      end
+    end
+
   end
 end

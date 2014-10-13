@@ -38,6 +38,17 @@ module Shoppe
     end
     
     private
+
+    def import
+      if request.post?
+        if params[:import].nil?
+          redirect_to import_products_path, :flash => {:alert => "No file was uploaded"}
+        else
+          Shoppe::Product.import(params[:import][:file])
+          redirect_to products_path, :flash => {:notice => "Products imported successfully"}
+        end
+      end
+    end
   
     def safe_params
       params[:product].permit(:product_category_id, :name, :sku, :permalink, :description, :short_description, :weight, :price, :cost_price, :tax_rate_id, :stock_control, :default_image_file, :data_sheet_file, :active, :featured, :in_the_box, :product_attributes_array => [:key, :value, :searchable, :public])
