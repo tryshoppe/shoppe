@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 4.0.0", "< 5.0"
   s.add_dependency "rails-i18n", "~> 4.0.0"
-  s.add_dependency "bcrypt-ruby", "~> 3.1", ">= 3.1.2"
+  s.add_dependency "bcrypt", "~> 3.1", ">= 3.1.2"
   s.add_dependency "ransack", "~> 1.2"
   s.add_dependency "kaminari", ">= 0.14.1", "< 0.16"
   s.add_dependency "haml", "~> 4.0"
