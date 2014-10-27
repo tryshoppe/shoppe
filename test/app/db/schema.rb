@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026181716) do
+ActiveRecord::Schema.define(version: 20141027191305) do
 
   create_table "nifty_attachments", force: true do |t|
     t.integer  "parent_id"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.string  "group"
     t.string  "name"
     t.string  "value"
+  end
+
+  create_table "shoppe_attachments", force: true do |t|
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.string   "token"
+    t.string   "file"
+    t.string   "file_name"
+    t.integer  "file_size"
+    t.string   "file_type"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shoppe_countries", force: true do |t|
