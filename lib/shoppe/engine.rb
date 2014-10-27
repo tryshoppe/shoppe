@@ -35,6 +35,11 @@ module Shoppe
         require 'shoppe/view_helpers'
         ActionView::Base.send :include, Shoppe::ViewHelpers
       end
+
+      ActiveSupport.on_load(:active_record) do
+        require 'shoppe/model_extension'
+        ActiveRecord::Base.send :include, Shoppe::ModelExtension
+      end
       
       # Load default navigation
       require 'shoppe/default_navigation'

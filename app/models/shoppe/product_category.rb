@@ -5,6 +5,8 @@ module Shoppe
   
     # Attachments for this product category
     has_many :attachments, :as => :parent, :dependent => :destroy, :class_name => "Shoppe::Attachment"
+
+    attachment :image
   
     # All products within this category
     has_many :products, :dependent => :restrict_with_exception, :class_name => 'Shoppe::Product'

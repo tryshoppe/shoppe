@@ -14,9 +14,17 @@ module Shoppe
     # received from a web browser.
     attr_accessor :attachments_array
     
+    after_save do
+      # After saving automatically try to update the product attachments based on the
+      # the contents of the attachments_array array.
+      if attachments_array.is_a?(Array)
+        self.attachments.update_from_array(attachments_array)
+      end
+    end
+    
     # Products have a default_image and a data_sheet
-    # attachment :default_image
-    # attachment :data_sheet
+    attachment :default_image
+    attachment :data_sheet
   
     # The product's category
     #
