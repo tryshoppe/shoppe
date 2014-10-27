@@ -7,9 +7,16 @@ module Shoppe
     require_dependency 'shoppe/product/product_attributes'
     require_dependency 'shoppe/product/variants'
     
+    # Attachments for this product
+    has_many :attachments, :as => :parent, :dependent => :destroy, :class_name => "Shoppe::Attachment"
+
+    # Used for setting an array of product attributes which will be updated. Usually
+    # received from a web browser.
+    attr_accessor :attachments_array
+    
     # Products have a default_image and a data_sheet
-    attachment :default_image
-    attachment :data_sheet
+    # attachment :default_image
+    # attachment :data_sheet
   
     # The product's category
     #
@@ -90,6 +97,15 @@ module Shoppe
     # @return [Fixnum]
     def stock
       self.stock_level_adjustments.sum(:adjustment)
+    end
+
+    # Attachments
+    def default_image
+      self.attachments.for("default_image")
+    end
+
+    def data_sheet
+      self.attachments.for("data_sheet")
     end
   
     # Search for products which include the given attributes and return an active record
