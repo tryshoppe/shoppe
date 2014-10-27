@@ -73,7 +73,7 @@
           %dd
             = attachment_preview nil, hide_if_blank: false
             %p= file_field_tag 'product[attachments_array][][file]'
-            = hidden_field_tag 'product[attachments_array][][parent_type]', "Product"
+            = hidden_field_tag 'product[attachments_array][][parent_type]', "Shoppe::Product"
             = hidden_field_tag 'product[attachments_array][][parent_id]', @product.id
       - @product.attachments.each do |attachment|
         - unless ["default_image", "data_sheet"].include?(attachment.role)
