@@ -37,7 +37,6 @@ instructions below and you'll be up and running in minutes.
     echo "gem 'shoppe', '~> 1.0'" >> Gemfile
     bundle
     rails generate shoppe:setup
-    rails generate nifty:attachments:migration
     rails generate nifty:key_value_store:migration
     rake db:migrate shoppe:setup
     rails server

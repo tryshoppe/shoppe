@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.licenses    = ['MIT']
   s.description = "A full Rails engine providing e-commerce functionality for any Rails 4 application."
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", ">= 4.0.0", "< 5.0"
   s.add_dependency "rails-i18n", "~> 4.0.0"
@@ -28,8 +28,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency "nifty-key-value-store", ">= 1.0.1", "< 2.0.0"
   s.add_dependency "nifty-utils", "~> 1.0"
-  s.add_dependency "nifty-attachments", ">= 1.0.3", "< 2.0.0"
   s.add_dependency "nifty-dialog", "~> 1.0"
+  s.add_dependency "carrierwave", "~> 0.10.0"
+  s.add_dependency "fog", "~> 1.24.0"
+  s.add_dependency "mini_magick", "~> 3.8.1"
 
   s.add_development_dependency "sqlite3", "~> 1.3"
   s.add_development_dependency "mysql2", "~> 0.3"

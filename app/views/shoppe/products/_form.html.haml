@@ -67,6 +67,22 @@
           = attachment_preview @product.data_sheet
           %p= f.file_field :data_sheet_file
 
+    .splitContainer.extraAttachments
+      .template
+        %dl.half
+          %dd
+            = attachment_preview nil, hide_if_blank: false
+            %p= file_field_tag 'product[attachments_array][][file]'
+            = hidden_field_tag 'product[attachments_array][][parent_type]', "Shoppe::Product"
+            = hidden_field_tag 'product[attachments_array][][parent_id]', @product.id
+      - @product.attachments.each do |attachment|
+        - unless ["default_image", "data_sheet"].include?(attachment.role)
+          %dl.half
+            %dd
+              = attachment_preview attachment
+      %p.addAttachment= link_to t('shoppe.products.add_attachment') , '#', :data => {:behavior => 'addAttachmentToExtraAttachments'}, :class => 'button button-mini green'
+
+
   - unless @product.has_variants?
     = field_set_tag t('shoppe.products.pricing') do
       .splitContainer

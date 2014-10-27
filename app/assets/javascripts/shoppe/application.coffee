@@ -38,6 +38,14 @@ $ ->
       helper.children().each (index)->
         $(this).width(originals.eq(index).width())
       helper
+
+  # Add a new attachment
+  $('a[data-behavior=addAttachmentToExtraAttachments]').on 'click', ->
+    ea = $('div.extraAttachments')
+    if ea.length > 0
+      template = $('.template', ea).html()
+      ea.append("#{template}")
+    false
   
   # Chosen
   $('select.chosen').chosen()
