@@ -119,6 +119,10 @@ en:
           many: ! '%{count} errors prohibited this %{model} from being saved'
           other: ! '%{count} errors prohibited this %{model} from being saved'
       models:
+        shoppe/product_category:
+          attributes:
+            permalink:
+              wrong_format: "can only contain letters, numbers, - and _"
         shoppe/delivery:
           attributes:
             delivery_service_id:
@@ -130,6 +134,8 @@ en:
               must_be_specified: Must be specified
         shoppe/product:
           attributes:
+            permalink:
+              wrong_format: "can only contain letters, numbers, - and _"
             base:
               can_belong_to_root: can only belong to a root product
         shoppe/order_item:

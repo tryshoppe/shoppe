@@ -120,6 +120,10 @@ pl:
           many: ! "Wystąpiło %{count} błędów podczas próby zapisu"
           other: ! "Wystąpiło %{count} błędów podczas próby zapisu"
       models:
+        shoppe/product_category:
+          attributes:
+            permalink:
+              wrong_format: "może zawierać wyłącznie litery, cyfry, - oraz _"
         shoppe/delivery:
           attributes:
             delivery_service_id:
@@ -131,6 +135,8 @@ pl:
               must_be_specified: musi być zdefiniowana
         shoppe/product:
           attributes:
+            permalink:
+              wrong_format: "może zawierać wyłącznie litery, cyfry, - oraz _"
             base:
               can_belong_to_root: może być podpięty do produktu głównego
         shoppe/order_item:
