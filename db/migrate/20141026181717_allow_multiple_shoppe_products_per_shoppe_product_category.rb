@@ -19,13 +19,15 @@ class AllowMultipleShoppeProductsPerShoppeProductCategory < ActiveRecord::Migrat
       product.product_categories << product.old_category
       product.save
     end
-    # lastly, remove the old producm    t_category_id for the belongs_to association
+    # lastly, remove the old product_category_id and associated index
+    remove_index :shoppe_products, :product_category_id if index_exists?(:shoppe_products, :product_category_id)
     remove_column :shoppe_products, :product_category_id
   end
 
   def down
     # first, we re-add our column so we've got something to populate
     add_column :shoppe_products, :product_category_id, :integer
+    add_index :shoppe_products, :product_category_id
     # define the old belongs_to association once again as we're going to re-add our goodies
     Shoppe::Product.class_eval do
       belongs_to :new_category,

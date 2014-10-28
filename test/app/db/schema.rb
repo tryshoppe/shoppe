@@ -212,7 +212,6 @@ ActiveRecord::Schema.define(version: 20141026181716) do
 
   add_index "shoppe_products", ["parent_id"], name: "index_shoppe_products_on_parent_id", using: :btree
   add_index "shoppe_products", ["permalink"], name: "index_shoppe_products_on_permalink", using: :btree
-  add_index "shoppe_products", ["product_category_id"], name: "index_shoppe_products_on_product_category_id", using: :btree
   add_index "shoppe_products", ["sku"], name: "index_shoppe_products_on_sku", using: :btree
 
   create_table "shoppe_settings", force: true do |t|
