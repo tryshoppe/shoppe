@@ -2,8 +2,8 @@
   = f.error_messages
   = field_set_tag  t('shoppe.products.product_information') do
     %dl
-      %dt= f.label :product_category_id, t('shoppe.products.product_category')
-      %dd= f.collection_select :product_category_id, Shoppe::ProductCategory.ordered, :id, :name, {:prompt => false}, {:class => 'chosen'}
+      %dt= f.label :product_categories, t('shoppe.product_category.product_categories')
+      %dd= f.collection_select :product_category_ids, Shoppe::ProductCategory.ordered, :id, :name, {:prompt => false}, {:class => 'chosen', :multiple => true, :data => {:placeholder => t('shoppe.product_category.choose_product_category') }}
 
     .splitContainer
       %dl.third

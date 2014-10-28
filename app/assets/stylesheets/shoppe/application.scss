@@ -154,6 +154,11 @@ header.main {
 			.splitContainer { margin:0 25px; margin-bottom:15px; height:50px;}
 			.splitContainer:last-child { margin-bottom:0;}
 
+			dl.cleared {
+				margin-top:15px;
+				clear:both;
+			}
+
 			dl {
 				margin:0 25px;
 				margin-bottom:15px;
@@ -260,6 +265,17 @@ header.main {
 					border:1px solid #ddd;
 					font-size:0.9em;
 					width:auto;
+				}
+			}
+
+			//
+			// category's children table
+			//
+			table.categoryChildren {
+				@extend table.importExample;
+				a { color:#000; }
+				tr:nth-last-child(2) td {
+					border: 1px solid #ddd;
 				}
 			}
 		}

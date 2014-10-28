@@ -5,7 +5,7 @@ module Shoppe
     before_filter { params[:id] && @product_category = Shoppe::ProductCategory.find(params[:id]) }
 
     def index
-      @product_categories = Shoppe::ProductCategory.ordered.all
+      @product_categories_without_parent = Shoppe::ProductCategory.without_parent.ordered
     end
 
     def new
@@ -40,7 +40,7 @@ module Shoppe
     private
 
     def safe_params
-      params[:product_category].permit(:name, :permalink, :description, :image_file)
+      params[:product_category].permit(:name, :permalink, :description, :image_file, :parent_id, :permalink_includes_ancestors)
     end
 
   end
