@@ -22,7 +22,7 @@ namespace :shoppe do
   task :changelog do
     system "scp -P 32032 CHANGELOG.md vdt@185.44.252.32:/app/docs/CHANGELOG.md"
   end
-  
+
   desc "Publish RDoc documentation from doc to api.tryshoppe.com"
   task :docs do
     if File.exist?('Rakefile')

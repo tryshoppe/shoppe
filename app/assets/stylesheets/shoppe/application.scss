@@ -112,7 +112,6 @@ header.main {
 		h3 { font-size:2.0em; font-weight:500;}
 	}
 
-
 	//
 	// Status tags
 	//
@@ -213,7 +212,6 @@ header.main {
 				dd div.checkbox { padding-top:5px;}
 			}
 
-
 			//
 			// margined container
 			//
@@ -228,17 +226,19 @@ header.main {
 				line-height:1.0;
 				thead td, thead th { text-align:left; border:1px solid #ccc; background:#f7f7f7; color:#999; font-size:0.9em; padding:10px; }
 				tr:nth-child(even) td {
-					background:#fbfbfb;
+					background-color:#fbfbfb;
+          &.remove { background-color:#ffeff5; }
 				}
 				td {
+          background-color: #fff;
 					border:1px solid #ccc;
 					padding:10px;
 					vertical-align:middle;
-					width:40%;
+					width:auto;
 					input[type=text] { width:100%; border:0; padding:0; margin:0; font-size:1.2em;}
-					&.remove { width:8%; text-align:center; background:#ffeff5;}
+					&.remove { width:8%; text-align:center; background-color:#ffeff5;}
 					&.searchable {  width:8%; text-align:center; }
-					&.handle { width:4%; background:image-url('shoppe/move.svg') no-repeat center; background-size:16px;}
+					&.handle { width:4%; background: #fff image-url('shoppe/move.svg') no-repeat center; background-size:16px;}
 				}
 			}
 
@@ -259,9 +259,12 @@ header.main {
 				td {
 					border:1px solid #ddd;
 					font-size:0.9em;
-					width:auto;
 				}
 			}
+
+      table.productTemplateAttributes {
+				@extend table.productAttributes;
+      }
 		}
 		p.submit {margin:0; background:#fff; border:1px solid #dce2eb; padding:25px; }
 		p.submit .button {
@@ -465,7 +468,6 @@ header.main {
 
 		}
 	}
-
 
 }
 

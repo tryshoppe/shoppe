@@ -1,0 +1,19 @@
+- @page_title = t('shoppe.product_templates.product_templates')
+
+= content_for :header do
+  %p.buttons=link_to t('shoppe.product_templates.new_product_template'), :new_product_template, :class => 'button green'
+  %h2.products= t('shoppe.product_templates.product_templates')
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= t('shoppe.product_templates.name')
+    %tbody
+      - if @product_templates.empty?
+        %tr.empty
+          %td= t('shoppe.product_templates.no_product_templates')
+      - else
+        - for product_template in @product_templates
+          %tr
+            %td= link_to product_template.name, [:edit, product_template]

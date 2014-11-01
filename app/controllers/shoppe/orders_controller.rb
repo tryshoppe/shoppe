@@ -30,6 +30,8 @@ module Shoppe
       flash.now[:alert] = t('shoppe.orders.insufficient_stock_order', out_of_stock_items: e.out_of_stock_items.map { |t| t.ordered_item.full_name }.to_sentence)
       render :action => 'new'
     end
+    # cjsoiejoiejs r
+    # oaijweoifjaweorj
 
     def show
       @payments = @order.payments.to_a
