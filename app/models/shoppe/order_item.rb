@@ -20,7 +20,7 @@ module Shoppe
 
     validate do
       unless in_stock?
-        errors.add :quantity, :too_hight_quantity
+        errors.add :quantity, :too_high_quantity
       end
     end
 
