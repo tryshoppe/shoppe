@@ -1,12 +1,6 @@
-class ProductTemplateAttributes
+class ProductTemplates
   constructor: ->
     @bindings()
-
-  removeHandler: (event)->
-    tr = $(this).parents('tr')
-    tr.find('input.destroy').val('1')
-    tr.hide()
-    event.preventDefault()
 
   addHandler: (event) ->
     time = new Date().getTime() + Math.ceil(Math.random(new Date().getTime())*10000)
@@ -14,8 +8,14 @@ class ProductTemplateAttributes
     $('table.productTemplateAttributes').append($(this).data('template').replace(regexp, time))
     event.preventDefault()
 
+  removeHandler: (event)->
+    tr = $(this).parents('tr')
+    tr.find('input.destroy').val('1')
+    tr.hide()
+    event.preventDefault()
+
   bindings: ->
-    $('table.productTemplateAttributes .remove-attribute').on 'click', @removeHandler
+    $('table.productTemplateAttributes').on 'click', '.remove-attribute', @removeHandler
 
     $('[data-behavior="addAttributeToProductTemplateAttributesTable"]').on 'click', @addHandler
 
@@ -28,4 +28,4 @@ class ProductTemplateAttributes
         $('table.productTemplateAttributes tbody tr').each (index, tr) -> $(tr).find('input.position').val(index)
 
 $ ->
-  new ProductTemplateAttributes if $('table.productTemplateAttributes').length > 0
+  new ProductTemplates if $('table.productTemplateAttributes').length > 0

@@ -1,0 +1,5 @@
+= fields_for :product do |f|
+  - for product_attribute in @product_attributes
+    = f.fields_for(:product_attributes_attributes, product_attribute, index: product_attribute.object_id) do |f_pa|
+      = render :partial => 'shoppe/products/product_attribute', :locals => { :f => f_pa }
+

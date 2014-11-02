@@ -36,6 +36,22 @@ module Shoppe
       redirect_to product_templates_path, notice: t('shoppe.product_templates.destroy_notice')
     end
 
+    def dialog
+      @product_templates ||= product_template_scope
+      if request.xhr?
+        render :action => 'dialog', :layout => false
+      end
+    end
+
+    def template_attributes
+      @product_template = Shoppe::ProductTemplate.find(params[:template_attributes][:template_id])
+      build_product_attributes_for_template
+
+      if request.xhr?
+        render 'template_attributes', :layout => false
+      end
+    end
+
     private
 
     def product_template_scope
@@ -65,6 +81,18 @@ module Shoppe
     def save_product_template
       if @product_template.save
         redirect_to [:edit, @product_template], notice: t('shoppe.product_templates.save_notice')
+      end
+    end
+
+    def build_product_attributes_for_template
+      @product_attributes = []
+      @product_template.product_template_attributes.each do |attribute|
+        @product_attributes << Shoppe::ProductAttribute.new({
+          key: attribute.key,
+          searchable: attribute.searchable,
+          public: attribute.public,
+          position: attribute.position
+        })
       end
     end
 

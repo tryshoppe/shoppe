@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026181716) do
+ActiveRecord::Schema.define(version: 20141027092201) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "nifty_attachments", force: true do |t|
     t.integer  "parent_id"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.string   "role"
     t.string   "file_name"
     t.string   "file_type"
-    t.binary   "data",        limit: 16777215
+    t.binary   "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -180,7 +183,25 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.datetime "updated_at"
   end
 
-  add_index "shoppe_product_categories", ["permalink"], name: "index_shoppe_product_categories_on_permalink", using: :btree
+  add_index "shoppe_product_categories", ["permalink"], name: "index_shoppe_product_categories_on_permalink", unique: true, using: :btree
+
+  create_table "shoppe_product_template_attributes", force: true do |t|
+    t.string   "key",                                null: false
+    t.boolean  "searchable",          default: true, null: false
+    t.boolean  "public",              default: true, null: false
+    t.integer  "position",            default: 1,    null: false
+    t.integer  "product_template_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shoppe_product_template_attributes", ["product_template_id"], name: "by_product_template", using: :btree
+
+  create_table "shoppe_product_templates", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "shoppe_products", force: true do |t|
     t.integer  "parent_id"
@@ -204,7 +225,7 @@ ActiveRecord::Schema.define(version: 20141026181716) do
   end
 
   add_index "shoppe_products", ["parent_id"], name: "index_shoppe_products_on_parent_id", using: :btree
-  add_index "shoppe_products", ["permalink"], name: "index_shoppe_products_on_permalink", using: :btree
+  add_index "shoppe_products", ["permalink"], name: "index_shoppe_products_on_permalink", unique: true, using: :btree
   add_index "shoppe_products", ["product_category_id"], name: "index_shoppe_products_on_product_category_id", using: :btree
   add_index "shoppe_products", ["sku"], name: "index_shoppe_products_on_sku", using: :btree
 

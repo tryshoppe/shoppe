@@ -418,13 +418,17 @@ en:
       remove: Remove
       save_notice: Product template has been saved successfully
       searchable?: Searchable?
+      select_template: Select template
       template_details: Template details
 
     products:
+      add: Add
       add_attribute: Add attribute
+      add_from_template: Add from template
       attachments: Attachments
       attributes: Attributes
       back_to_products: Back to product list
+      cancel: Cancel
       cost_price: Cost price
       create_notice: Product has been created successfully
       datasheet: Datasheet

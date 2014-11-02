@@ -1,0 +1,9 @@
+= form_for :template_attributes, :url => template_attributes_product_templates_path, :html => { :id => 'select-product-template-form'} do |f|
+  = field_set_tag t('shoppe.product_templates.product_templates') do
+    %dl
+      %dt= f.label t('shoppe.product_templates.select_template')
+      %dd
+        = f.collection_select :template_id, @product_templates, :id, :name, { :prompt => false }, { :class => 'chosen' }
+  %p
+    = f.submit t('shoppe.products.add'), :class => 'button green'
+    = link_to t('shoppe.cancel'), '#', :class => 'button gray cancel'

@@ -419,13 +419,17 @@ pl:
       remove: Usuń
       save_notice: Szablon został pomyślnie zapisany
       searchable?: W wyszukiwarce?
+      select_template: Wybierz szablon produktu
       template_details: Szczegóły szablonu
 
     products:
+      add: Dodaj
       add_attribute: Dodaj atrybut
+      add_from_template: Dodaj z szablonu
       attachments: Załączniki
       attributes: Atrybuty
       back_to_products: Powrót do listy produktów
+      cancel: Cancel
       cost_price: Koszt
       create_notice: Produkt został utowrzony
       datasheet: Katalog danych
