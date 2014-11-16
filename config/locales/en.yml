@@ -387,17 +387,27 @@ en:
       attachments: Attachments
       back_to_categories: Back to categories list
       category_details: Category Details
+      choose_product_category: Choose a product category
       create_notice: Category has been created successfully
       delete_confirmation:  Are you sure you wish to remove this category?
       description: Description
       destroy_notice: Category has been removed successfully
+      destroy_alert: Category could not be removed
       image: Image
       name: Name
       new_category: New category
       no_categories: No categories to display.
       permalink: Permalink
+      permalink_includes_ancestors: Prefix links in store with ancestor categories
       product_categories: Product categories
       update_notice: Category has been updated successfully
+      nesting:
+        blank_option: None
+        category_nesting: Nesting
+        category_parent: Parent
+        current_category: Current
+        no_children: No Children
+        hierarchy: Hierarchy
 
     products:
       add_attribute: Add attribute

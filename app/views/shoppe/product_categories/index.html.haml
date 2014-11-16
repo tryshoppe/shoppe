@@ -10,10 +10,11 @@
       %tr
         %th= t('shoppe.product_category.name')
     %tbody
-      - if @product_categories.empty?
+      - if @product_categories_without_parent.empty?
         %tr.empty
           %td= t('shoppe.product_category.no_categories')
       - else
-        - for cat in @product_categories
+        - for cat in @product_categories_without_parent
           %tr
             %td= link_to cat.name, [:edit, cat]
+          = nested_product_category_rows(cat)

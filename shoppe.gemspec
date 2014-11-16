@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "sass-rails", "~> 4.0"
   s.add_dependency "uglifier", ">= 2.2", "< 3.0"
   s.add_dependency "roo", ">= 1.13.0"
+  s.add_dependency "awesome_nested_set", "~> 3.0.1"
 
   s.add_dependency "nifty-key-value-store", ">= 1.0.1", "< 2.0.0"
   s.add_dependency "nifty-utils", "~> 1.0"

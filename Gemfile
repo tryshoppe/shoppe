@@ -12,3 +12,6 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+# acts_as_nested_set dependent :restrict_with_exception doesn't work unless we use this branch
+gem 'awesome_nested_set', '~> 3.0.1', github: 'naked-apps/awesome_nested_set', branch: 'fix_dependent_restrict_with_exception'

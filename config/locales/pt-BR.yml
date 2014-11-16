@@ -380,6 +380,7 @@ pt-BR:
       attachments: Anexos
       back_to_categories: Voltar para a lista de categorias
       category_details: Detalhes da Categoria
+      choose_product_category: Escolha uma categoria de produto
       create_notice: A Categoria foi criada com sucesso
       delete_confirmation: Você tem certeza que deseja remover esta categoria?
       description: Descrição
@@ -389,8 +390,16 @@ pt-BR:
       new_category: Nova categoria
       no_categories: Nenhuma categoria para mostrar.
       permalink: Permalink
+      permalink_includes_ancestors: Prefix links in store with ancestor categories
       product_categories: Categorias de Produto
       update_notice: A Categoria foi atualizada com sucesso
+      nesting:
+        blank_option: None
+        category_nesting: Nesting
+        category_parent: Parent
+        current_category: Current
+        no_children: No Children
+        hierarchy: Hierarchy
 
     products:
       add_attribute: Adicionar atributo

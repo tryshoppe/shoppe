@@ -393,6 +393,7 @@ pl:
       attachments: Załączniki
       back_to_categories: Powrót do listy kategorii
       category_details: Szczegóły kategorii
+      choose_product_category: Wybierz kategorię produktu
       create_notice: Kategoria została utworzona
       delete_confirmation:  Czy na pewno usunąć kategorię?
       description: Opis
@@ -402,8 +403,16 @@ pl:
       new_category: Nowa kategoria
       no_categories: Brak kategorii do wyświetlenia
       permalink: Permalink
+      permalink_includes_ancestors: Prefix links in store with ancestor categories
       product_categories: Kategorie produktów
       update_notice: Kategoria została zaktualizowana
+      nesting:
+        blank_option: None
+        category_nesting: Nesting
+        category_parent: Parent
+        current_category: Current
+        no_children: No Children
+        hierarchy: Hierarchy
 
     products:
       add_attribute: Dodaj atrybut
