@@ -11,7 +11,7 @@ module Shoppe
     # @return [Shoppe::Payment]
     belongs_to :parent, :class_name => "Shoppe::Payment", :foreign_key => "parent_payment_id"
 
-    # Validatiosn
+    # Validations
     validates :amount, :numericality => true
     validates :reference, :presence => true
     validates :method, :presence => true
