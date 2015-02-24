@@ -6,7 +6,7 @@ module Shoppe
     # The associated order
     #
     # @return [Shoppe::Order]
-    belongs_to :order, :class_name => 'Shoppe::Order', :touch => true
+    belongs_to :order, :class_name => 'Shoppe::Order', :touch => true, inverse_of: :order_items
 
     # The item which has been ordered
     belongs_to :ordered_item, :polymorphic => true
@@ -20,7 +20,7 @@ module Shoppe
 
     validate do
       unless in_stock?
-        errors.add :quantity, :too_hight_quantity
+        errors.add :quantity, :too_high_quantity
       end
     end
 

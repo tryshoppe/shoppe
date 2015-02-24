@@ -13,7 +13,7 @@ module Shoppe
     require_dependency 'shoppe/order/delivery'
     
     # All items which make up this order
-    has_many :order_items, :dependent => :destroy, :class_name => 'Shoppe::OrderItem'
+    has_many :order_items, :dependent => :destroy, :class_name => 'Shoppe::OrderItem', inverse_of: :order
     accepts_nested_attributes_for :order_items, :allow_destroy => true, :reject_if => Proc.new { |a| a['ordered_item_id'].blank? }
 
     # All products which are part of this order (accessed through the items)
