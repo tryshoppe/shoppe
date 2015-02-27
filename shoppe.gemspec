@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency "dynamic_form", '~> 1.1', '>= 1.1.4'
   s.add_dependency "jquery-rails", "~> 3"
   s.add_dependency "coffee-rails", "~> 4"
-  s.add_dependency "sass-rails", "~> 4.0"
+  s.add_dependency "sass-rails", ">= 4.0"
   s.add_dependency "uglifier", ">= 2.2", "< 3.0"
   s.add_dependency "roo", ">= 1.13.0", "< 1.14"
 
