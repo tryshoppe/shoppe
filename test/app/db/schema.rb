@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026181716) do
+ActiveRecord::Schema.define(version: 20141027215005) do
 
   create_table "nifty_attachments", force: true do |t|
     t.integer  "parent_id"
@@ -34,6 +34,35 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.string  "value"
   end
 
+  create_table "shoppe_addresses", force: true do |t|
+    t.integer  "customer_id"
+    t.string   "address_type"
+    t.boolean  "default"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "address4"
+    t.string   "postcode"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shoppe_addresses", ["customer_id"], name: "index_shoppe_addresses_on_customer_id", using: :btree
+
+  create_table "shoppe_attachments", force: true do |t|
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.string   "token"
+    t.string   "file"
+    t.string   "file_name"
+    t.integer  "file_size"
+    t.string   "file_type"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shoppe_countries", force: true do |t|
     t.string  "name"
     t.string  "code2"
@@ -42,6 +71,17 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.string  "tld"
     t.string  "currency"
     t.boolean "eu_member", default: false
+  end
+
+  create_table "shoppe_customers", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "company"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "mobile"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shoppe_delivery_service_prices", force: true do |t|

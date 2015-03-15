@@ -1,6 +1,12 @@
 Shoppe::Engine.routes.draw do
 
   get 'attachment/:id/:filename.:extension' => 'attachments#show'
+
+  resources :customers do
+    post :search, :on => :collection
+    resources :addresses
+  end
+  
   resources :product_categories
   resources :products do
     resources :variants

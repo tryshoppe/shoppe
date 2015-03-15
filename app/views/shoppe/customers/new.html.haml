@@ -1,0 +1,5 @@
+- @page_title = "Customers"
+= content_for :header do
+  %p.buttons= link_to "Back to customer list", :customers, :class => 'button'
+  %h2.users Customers
+= render "form"

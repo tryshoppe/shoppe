@@ -185,6 +185,65 @@ en:
     edit: Edit
     import: Import
     remove: Remove
+
+    removed_it: "%{it} has been removed successfully"  
+    save_settings: Save Settings
+    separate_delivery_address: Separate delivery address
+    service_available: Service will be available for use
+    service_default: Service will be used by default (if possible)
+    settings_title: Settings
+    settings_not_in_demo: You cannot make changes to settings in demo mode. Sorry about that.
+    set_prices: Set Prices
+    shoppe_back: Back to Shoppe
+    sku: SKU
+    status: Status
+    stock: Stock
+    stock_current: Current stock level is
+    stock_control: Stock Control
+    stock_control_enable: Enable stock control for this product?
+    stock_levels: Stock levels
+    stock_levels_for: Stock levels %{item}
+    stock_none: No stock
+    system_settings: System settings
+    tax_rate: Tax rate
+    tax_rate_apply_to: Apply to orders where the %{to} matches one of the countries below
+    tax_rate_delete_confirm: Are you sure you wish to remove this tax_rate?
+    tax_rate_details: Rate Details
+    tax_rate_new: New tax rate
+    tax_rate_note: Do NOT edit tax rates that are already in use. 
+      Care should be taken when editing tax rates, as this may affect existing orders. 
+      while creating a new tax rate, you must delete it and create a new one. When you delete a tax rate
+      it is not removed from the system, only deactivated, so existing orders stay unaffected.
+    tax_rates: Tax Rates
+    tax_rates_back: Back to tax rates
+    tax_none: No tax
+    telephone: Telephone
+    total: Total
+    total_weight: Total weight
+    tracking_url: Tracking URL
+    unknown: Unknown
+    updated_it: "%{it} has been updated successfully"  
+    users: Users
+    users_back: Back to users
+    user_delete_confirm: Are you sure you wish to remove this user?
+    user_details: User Details
+    user: User
+    user_edit: Edit user
+    user_new: New User
+    user_not_in_demo: You cannot make changes to users in demo mode. Sorry about that.
+    user_not_yourself: You cannot remove yourself
+    variants: Variants
+    variants_back: Back to variants
+    variants_of: Variants of %{product}
+    variant_delete_confirm: Are you sure you wish to remove this variant?
+    variant_of: Variant of %{product}
+    variant_new: New variant
+    variant_save: Save Variant
+    value: Value
+    website_properties: Website Properties
+    weight: Weight
+    weight_allowance: Weight Allowance
+
     submit: Submit
 
     attachments:
@@ -318,6 +377,7 @@ en:
       order_rejected: Order Rejected
       order_shipped: Order Shipped
       ordered_products: Ordered products
+
       orders: Orders
       payment: Payment
       payment_remove_confirmation: Are you sure you wish to remove this payment?
@@ -415,7 +475,7 @@ en:
       featured?: Featured?
       featured_info:  If checked, this product will appear on your homepage
       import_products: Import products
-      in_the_box: What's in the box?
+      in_the_box: "What's in the box?"
       name: Name
       new_product: New product
       no_products: No products to display.
@@ -590,6 +650,7 @@ en:
 
     navigation:
       admin_primary:
+        customers: Customers
         orders: Orders
         products: Products
         product_categories: Product Categories
