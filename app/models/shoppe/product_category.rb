@@ -3,8 +3,8 @@ module Shoppe
 
     self.table_name = 'shoppe_product_categories'
 
-    # Categories have an image attachment
-    attachment :image
+    # Attachments for this product category
+    has_many :attachments, :as => :parent, :dependent => :destroy, :class_name => "Shoppe::Attachment"
 
     # All products within this category
     has_many :products, :dependent => :restrict_with_exception, :class_name => 'Shoppe::Product'
@@ -18,6 +18,14 @@ module Shoppe
 
     # Set the permalink on callback
     before_validation { self.permalink = self.name.parameterize if self.permalink.blank? && self.name.is_a?(String) }
+
+    
+    # Attachment with the role image
+    # 
+    # @return [String]
+    def image
+      self.attachments.for("image")
+    end
 
   end
 end
