@@ -11,6 +11,7 @@ module Shoppe
 
     # Attachments for this product
     has_many :attachments, :as => :parent, :dependent => :destroy, :class_name => "Shoppe::Attachment"
+    accepts_nested_attributes_for :attachments
 
     # Products have a default_image and a data_sheet
     # attachment :default_image

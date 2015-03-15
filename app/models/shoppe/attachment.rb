@@ -5,7 +5,7 @@ module Shoppe
     self.table_name = "shoppe_attachments"
 
     # Mount the Carrierwave uploader
-    mount_uploader :file, AttachmentUploader
+    # mount_uploader :file, AttachmentUploader
 
     # Relationships
     belongs_to :parent, :polymorphic => true
@@ -46,28 +46,6 @@ module Shoppe
       else
         false
       end
-    end
-
-    # Create/update attributes for a product based on the provided hash of
-    # keys & values.
-    #
-    # @param array [Array]
-    def self.update_from_array(array)
-      existing_keys = self.pluck(:file)
-      array.each do |hash|
-        next if hash['file'].blank?
-        if existing_attr = self.where(:file => hash['file']).first
-          if hash['file'].blank?
-            existing_attr.destroy
-          else
-            existing_attr.update_attributes(hash)
-          end
-        else
-          attribute = self.create(hash)
-        end
-      end
-      self.where(:file => existing_keys - array.map { |h| h['file']}).delete_all
-      true
     end
 
   end
