@@ -13,6 +13,10 @@ $ ->
   # When clicking the order search button, toggle the form
   $('a[rel=searchOrders]').on 'click', ->
     $('div.orderSearch').toggle()
+
+  # When clicking the customer search button, toggle the form
+  $('a[rel=searchCustomers]').on 'click', ->
+    $('div.customerSearch').toggle()
   
   # Add a new attribute to a table
   $('a[data-behavior=addAttributeToAttributesTable]').on 'click', ->

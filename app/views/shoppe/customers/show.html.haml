@@ -1,0 +1,26 @@
+- @page_title = "Customer - #{@customer.name}"
+= content_for :header do
+  %p.buttons
+    = link_to "Edit", [:edit, @customer], class: "button"
+  %h2.customers
+    Customer - #{@customer.name}
+
+#customer
+  .details
+    .left
+      %dl
+        %dt Name
+        %dd= @customer.full_name
+        %dt Company
+        %dd= @customer.company.blank? ? '-' : @customer.company
+    .right
+      %dl
+        %dt Email Address
+        %dd= mail_to @customer.email
+        %dt Telephone
+        %dd= @customer.phone
+        %dt Mobile
+        %dd= @customer.mobile
+
+  = field_set_tag "Addresses", :class => 'padded' do
+    = render "addresses"

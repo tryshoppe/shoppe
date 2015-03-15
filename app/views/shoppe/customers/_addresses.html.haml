@@ -1,0 +1,18 @@
+.addresses
+  .table
+    %table.data
+      %thead
+        %tr
+          %th Type
+          %th Default
+          %th Address
+      %tbody
+        - if @addresses.empty?
+          %tr.empty
+            %td{:colspan => 3} No addresses to display.
+        - else
+          - for address in @addresses
+            %tr
+              %td= address.address_type.capitalize
+              %td= boolean_tag address.default
+              %td= address.full_address

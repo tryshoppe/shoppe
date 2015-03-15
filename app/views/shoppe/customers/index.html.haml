@@ -1,0 +1,32 @@
+- @page_title = "Customers"
+
+= content_for :header do
+  %p.buttons
+    = link_to "New Customer", :new_customer, class: "button green"
+    = link_to "Search Customers", '#', class: 'button', rel: "searchCustomers"
+  %h2.users Customers
+
+= render "search_form"
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th Name
+        %th Company
+        %th Email
+        %th Phone
+        %th Mobile
+    %tbody
+      - if @customers.empty?
+        %tr.empty
+          %td{colspan: 5} No customers to display.
+      - else
+        - for customer in @customers
+          %tr
+            %td= link_to customer.full_name, customer
+            %td= link_to customer.company, customer
+            %td= customer.email
+            %td= customer.phone
+            %td= customer.mobile
+= paginate @customers

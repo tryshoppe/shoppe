@@ -1,0 +1,34 @@
+= form_for @customer do |f|
+  = f.error_messages
+
+  = field_set_tag "Customer Information" do
+    .splitContainer
+      %dl.third
+        %dt= f.label :first_name
+        %dd= f.text_field :first_name, :class => "text focus"
+      %dl.third
+        %dt= f.label :last_name
+        %dd= f.text_field :last_name, :class => "text"
+      %dl.third
+        %dt= f.label :company
+        %dd= f.text_field :company, :class => "text"
+    .splitContainer
+      %dl.half
+        %dt= f.label :email
+        %dd= f.text_field :email, :class => "text"
+      %dl.half
+        %dt= f.label :phone
+        %dd= f.text_field :phone, :class => "text"
+    .splitContainer
+      %dl.half
+        %dt= f.label :password
+        %dd= f.password_field :password, :class => "text"
+      %dl.half
+        %dt= f.label :password_confirmation
+        %dd= f.password_field :password_confirmation, :class => "text"
+
+  %p.submit
+    - unless @customer.new_record?
+      %span.right= link_to "Delete", @customer, :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this product?"}
+    = f.submit :class => 'button green', data: {disable_with: (@customer.new_record? ? "Creating Customer..." : "Updating Customer...")}
+    = link_to "Cancel", :customers, :class => 'button'
