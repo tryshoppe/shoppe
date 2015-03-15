@@ -54,15 +54,13 @@ module Shoppe
     #
     # @param user [Shoppe::User] the user who carried out this action    
     def accept!(user = nil)
-      transaction do
-        run_callbacks :acceptance do
-          self.accepted_at = Time.now
-          self.accepter = user if user
-          self.status = 'accepted'
-          self.save!
-          self.order_items.each(&:accept!)
-          deliver_accepted_order_email
-        end
+      run_callbacks :acceptance do
+        self.accepted_at = Time.now
+        self.accepter = user if user
+        self.status = 'accepted'
+        self.save!
+        self.order_items.each(&:accept!)
+        deliver_accepted_order_email
       end
     end
   
@@ -70,15 +68,13 @@ module Shoppe
     #
     # @param user [Shoppe::User] the user who carried out the action
     def reject!(user = nil)
-      transaction do
-        run_callbacks :rejection do
-          self.rejected_at = Time.now
-          self.rejecter = user if user
-          self.status = 'rejected'
-          self.save!
-          self.order_items.each(&:reject!)
-          deliver_rejected_order_email
-        end
+      run_callbacks :rejection do
+        self.rejected_at = Time.now
+        self.rejecter = user if user
+        self.status = 'rejected'
+        self.save!
+        self.order_items.each(&:reject!)
+        deliver_rejected_order_email
       end
     end
 
