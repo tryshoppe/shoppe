@@ -37,23 +37,12 @@
             %td.remove= t('shoppe.products.remove')
             %td
         %tbody
-          %tr.template{:style => 'display:none;'}
-            %td= text_field_tag 'product[product_attributes_array][][key]', '', :placeholder => t('shoppe.products.name')
-            %td= text_field_tag 'product[product_attributes_array][][value]', '', :placeholder => t('shoppe.products.value')
-            %td.searchable= check_box_tag 'product[product_attributes_array][][searchable]', '1'
-            %td.searchable= check_box_tag 'product[product_attributes_array][][public]', '1'
-            %td.remove= link_to t('shoppe.remove') , '#', :class => 'button button-mini purple'
-            %td.handle
-          - for attribute in @product.product_attributes
-            %tr
-              %td= text_field_tag 'product[product_attributes_array][][key]', attribute.key, :placeholder => t('shoppe.products.name')
-              %td= text_field_tag 'product[product_attributes_array][][value]', attribute.value, :placeholder => t('shoppe.products.value')
-              %td.searchable= check_box_tag 'product[product_attributes_array][][searchable]', '1', attribute.searchable?
-              %td.searchable= check_box_tag 'product[product_attributes_array][][public]', '1', attribute.public?
-              %td.remove= link_to t("shoppe.remove"), '#', :class => 'button button-mini purple'
-              %td.handle
-      %p.addAttribute= link_to t('shoppe.products.add_attribute') , '#', :data => {:behavior => 'addAttributeToAttributesTable'}, :class => 'button button-mini green'
-
+          - for product_attribute in @product.product_attributes
+            = f.fields_for :product_attributes, product_attribute do |f_pa|
+              = render :partial => 'product_attribute', :locals => { :f => f_pa }
+      %div.addAttribute
+        = link_to_add_product_attribute(f)
+        = link_to t('shoppe.products.add_from_template'), dialog_product_templates_path, :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'productTemplateAddributes'}, :class => 'button button-mini gray'
   = field_set_tag t('shoppe.products.attachments') do
     .splitContainer
       %dl.half

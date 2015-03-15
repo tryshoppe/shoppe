@@ -28,6 +28,9 @@ pl:
       shoppe/product_category:
         one: Kategoria produktu
         other: Kategorie produktu
+      shoppe/product_template:
+        one: Szablon produktu
+        other: Szablony produktów
       shoppe/setting:
         one: Ustawienie
         other: Ustawienia
@@ -64,8 +67,8 @@ pl:
       shoppe/country:
         name: Nazwa
       shoppe/delivery_service:
-        courier: Kurier
         name: Nazwa
+        courier: Kurier
       shoppe/delivery_service_price:
         code: Kod
         cost_price: Koszt
@@ -93,6 +96,8 @@ pl:
       shoppe/product_category:
         name: Nazwa
         permalink: Permalink
+      shoppe/product_template:
+        name: Nazwa
       shoppe/setting:
         key: Klucz
         value: Wartość
@@ -179,7 +184,7 @@ pl:
 
   shoppe:
 
-    # commmon
+    # common
     cancel: Anuluj
     close: Zamknij
     delete: Usuń
@@ -384,11 +389,6 @@ pl:
         rejected: Odrzucone
         shipped:  Dostarczone
 
-    refund:
-      intro_html: Aby dokonać zwrotu płatności proszę wprowadzić kwotę oraz kliknąć 'Zwrot'. Kwota maksymalna zwrotu to <b>%{amount}</b>.
-      issue_refund: Dokonaj zwrotu
-      refund: Zwrot
-
     product_category:
       attachments: Załączniki
       back_to_categories: Powrót do listy kategorii
@@ -405,11 +405,31 @@ pl:
       product_categories: Kategorie produktów
       update_notice: Kategoria została zaktualizowana
 
-    products:
+    product_templates:
       add_attribute: Dodaj atrybut
+      attributes: Atrybuty
+      back_to_templates: Powrót do listy szablonów
+      destroy_notice: Szablon został pomyślnie usunięty
+      delete_confirmation: Czy napewno usunąć?
+      name: Nazwa
+      new_product_template: Nowy szablon produktów
+      product_template: Szablon produktu
+      product_templates: Szablony produktu
+      public?: Publiczny?
+      remove: Usuń
+      save_notice: Szablon został pomyślnie zapisany
+      searchable?: W wyszukiwarce?
+      select_template: Wybierz szablon produktu
+      template_details: Szczegóły szablonu
+
+    products:
+      add: Dodaj
+      add_attribute: Dodaj atrybut
+      add_from_template: Dodaj z szablonu
       attachments: Załączniki
       attributes: Atrybuty
       back_to_products: Powrót do listy produktów
+      cancel: Cancel
       cost_price: Koszt
       create_notice: Produkt został utowrzony
       datasheet: Katalog danych
@@ -425,8 +445,8 @@ pl:
       name: Nazwa
       new_product: Nowy produkt
       no_products: Brak produktów do wyświetlenia
-      no_tax: Brak podatku
       no_stock: Brak
+      no_tax: Brak podatku
       on_sale?: W sprzedaży?
       on_sale_info: Produkt będzie wyświetlany na stronie
       permalink: Permalink
@@ -451,8 +471,8 @@ pl:
       website_properties: Właściwości strony
       weight: Waga
 
-      imports: 
-        help: Products and Categories are matched by name.  If no product is found, a new one will be created with all the attributes on the line.  If a product is found, only the quantity will be updated and all other fields will be ignored.  If no category is found, one with that name will be created .  One product per line.  
+      imports:
+        help: Products and Categories are matched by name.  If no product is found, a new one will be created with all the attributes on the line.  If a product is found, only the quantity will be updated and all other fields will be ignored.  If no category is found, one with that name will be created .  One product per line.
         success: Produkty importowane z powodzeniem
         examples:
           first:
@@ -483,6 +503,11 @@ pl:
             category_name: Teddy Bears
             qty: 50
 
+    refund:
+      intro_html: Aby dokonać zwrotu płatności proszę wprowadzić kwotę oraz kliknąć 'Zwrot'. Kwota maksymalna zwrotu to <b>%{amount}</b>.
+      issue_refund: Dokonaj zwrotu
+      refund: Zwrot
+
     sessions:
       admin_login: Login administratora
       create_alert: Zły login lub hasło. Proszę spróbować ponownie.
@@ -494,6 +519,7 @@ pl:
       reset_password: Resetuj hasło
       reset_password?: Zapomniane hasło?
       reset_alert: Nie znaleziono podanego adresu.
+      reset_notice: "Email z nowym hasłem został wysłany na adres %{email_address}"
 
     shared:
       back_to_shoppe: Powrót do sklepu
@@ -593,6 +619,7 @@ pl:
         orders: Zamówienia
         products: Produkty
         product_categories: Kategorie produktów
+        product_templates: Szablony produktów
         delivery_services: Opcje dostawy
         tax_rates: Stawki podatkowe
         users: Użytkownicy

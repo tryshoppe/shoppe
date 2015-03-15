@@ -1,0 +1,12 @@
+%tr
+  %td
+    = f.text_field :key, :placeholder => t('shoppe.products.name')
+    = f.hidden_field :position, :class => 'position'
+  %td
+    = f.text_field :value, :placeholder => t('shoppe.products.value')
+  %td.searchable= f.check_box :searchable
+  %td.searchable= f.check_box :public
+  %td.remove
+    = f.hidden_field :_destroy, :value => false, :class =>'destroy'
+    = link_to t("shoppe.remove"), '#', :class => 'button button-mini purple remove-attribute'
+  %td.handle

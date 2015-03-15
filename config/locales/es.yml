@@ -28,6 +28,9 @@ es:
       shoppe/product_category:
         one: Categoría de producto
         other: Categorías de producto
+      shoppe/product_template:
+        one: Plantilla del producto
+        other: Plantillas de producto
       shoppe/setting:
         one: Ajuste
         other: Ajustes
@@ -93,6 +96,8 @@ es:
       shoppe/product_category:
         name: Nombre
         permalink: Permalink
+      shoppe/product_template:
+        name: Nombre
       shoppe/setting:
         key: Clave
         value: Valor
@@ -399,11 +404,31 @@ es:
       product_categories: Categorías de producto
       update_notice: Categoría actualizada satisfactoriamente
 
+    product_templates:
+      add_attribute: Añadir atributo
+      attributes: Atributos
+      back_to_templates: Volver a las plantillas
+      destroy_notice: Plantilla del producto se ha eliminado con éxito
+      delete_confirmation: Estás seguro?
+      name: Nombre
+      new_product_template: Nueva plantilla de producto
+      product_template: Plantilla del producto
+      product_templates: Plantillas del producto
+      public?: Público?
+      remove: Quitar
+      save_notice: Plantilla del producto ha sido guardado con éxito
+      searchable?: Realizar búsquedas?
+      select_template: Seleccione la plantilla
+      template_details: Detalles de la plantilla
+
     products:
+      add: Añadir
       add_attribute: Agregar atributo
+      add_from_template: Añadir de la plantilla
       attachments: Adjuntos
       attributes: Atributos
       back_to_products: Volver a la lista de productos
+      cancel: Cancelar
       cost_price: Precio de costo
       create_notice: Producto creado satisfactoriamente
       datasheet: Hoja de datos
@@ -593,6 +618,7 @@ es:
         orders: Órdenes
         products: Productos
         product_categories: Categorías de Productos
+        product_templates: Plantillas de producto
         delivery_services: Servicios de Envíos
         tax_rates: Tasas de Impuestos
         users: Usuarios

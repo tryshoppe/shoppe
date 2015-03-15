@@ -1,0 +1,28 @@
+= form_for @product_template do |f|
+  = f.error_messages
+  = field_set_tag t('shoppe.product_templates.template_details') do
+    .splitContainer
+      %dl
+        %dt= f.label :name, t('shoppe.product_templates.name')
+        %dd= f.text_field :name, :class => 'focus text'
+
+  = field_set_tag t('shoppe.product_templates.attributes') do
+    .margin
+      %table.productTemplateAttributes
+        %thead
+          %tr
+            %td= t('shoppe.product_templates.name')
+            %td.searchable= t('shoppe.product_templates.searchable?')
+            %td.searchable= t('shoppe.product_templates.public?')
+            %td.remove= t('shoppe.product_templates.remove')
+            %td
+        %tbody
+          = f.fields_for :product_template_attributes, @product_template.product_template_attributes do |f_a|
+            = render :partial => 'product_template_attribute', :locals => { :f => f_a }
+      %p.addAttribute= link_to_add_product_template_attribute(f)
+
+  %p.submit
+    - unless @product_template.new_record?
+      %span.right= link_to t('shoppe.delete') , @product_template, :class => 'button purple', :method => :delete, :data => {:confirm => t('shoppe.product_templates.delete_confirmation') }
+    = f.submit t('shoppe.submit'),  :class => 'button green'
+    = link_to t('shoppe.cancel') , :product_templates, :class => 'button'

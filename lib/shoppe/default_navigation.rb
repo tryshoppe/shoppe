@@ -6,12 +6,13 @@ require 'shoppe/navigation_manager'
 # to restart the webserver.
 
 #
-# This is the default navigation manager for the admin interface. 
+# This is the default navigation manager for the admin interface.
 #
 Shoppe::NavigationManager.build(:admin_primary) do
   add_item :orders
   add_item :products
   add_item :product_categories
+  add_item :product_templates
   add_item :delivery_services
   add_item :tax_rates
   add_item :users

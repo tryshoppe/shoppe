@@ -28,6 +28,9 @@ en:
       shoppe/product_category:
         one: Product category
         other: Product categories
+      shoppe/product_template:
+        one: Product template
+        other: Product templates
       shoppe/setting:
         one: Setting
         other: Settings
@@ -93,6 +96,8 @@ en:
       shoppe/product_category:
         name: Name
         permalink: Permalink
+      shoppe/product_template:
+        name: Name
       shoppe/setting:
         key: Key
         value: Value
@@ -399,11 +404,31 @@ en:
       product_categories: Product categories
       update_notice: Category has been updated successfully
 
-    products:
+    product_templates:
       add_attribute: Add attribute
+      attributes: Attributes
+      back_to_templates: Back to templates
+      destroy_notice: Product template has been removed successfully
+      delete_confirmation: Are you sure?
+      name: Name
+      new_product_template: New product template
+      product_template: Product template
+      product_templates: Product templates
+      public?: Public?
+      remove: Remove
+      save_notice: Product template has been saved successfully
+      searchable?: Searchable?
+      select_template: Select template
+      template_details: Template details
+
+    products:
+      add: Add
+      add_attribute: Add attribute
+      add_from_template: Add from template
       attachments: Attachments
       attributes: Attributes
       back_to_products: Back to product list
+      cancel: Cancel
       cost_price: Cost price
       create_notice: Product has been created successfully
       datasheet: Datasheet
@@ -445,8 +470,8 @@ en:
       website_properties: Website Properties
       weight: Weight
 
-      imports: 
-        help: Products and Categories are matched by name.  If no product is found, a new one will be created with all the attributes on the line.  If a product is found, only the quantity will be updated and all other fields will be ignored.  If no category is found, one with that name will be created .  One product per line.  
+      imports:
+        help: Products and Categories are matched by name.  If no product is found, a new one will be created with all the attributes on the line.  If a product is found, only the quantity will be updated and all other fields will be ignored.  If no category is found, one with that name will be created .  One product per line.
         success: Products imported successfully
         examples:
           first:
@@ -593,6 +618,7 @@ en:
         orders: Orders
         products: Products
         product_categories: Product Categories
+        product_templates: Product Templates
         delivery_services: Delivery Services
         tax_rates: Tax Rates
         users: Users
