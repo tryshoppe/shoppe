@@ -48,6 +48,9 @@ module Shoppe
     # Before validation, set the permalink if we don't already have one
     before_validation { self.permalink = self.name.parameterize if self.permalink.blank? && self.name.is_a?(String) }
 
+    # Before save, ensure that if we've entered an inclusive price, we use that to calculate the price
+    before_save :consider_tax
+
     # All active products
     scope :active, -> { where(:active => true) }
 
@@ -78,6 +81,43 @@ module Shoppe
     # @return [BigDecimal]
     def price
       self.default_variant ? self.default_variant.price : read_attribute(:price)
+    end
+
+    # The price, inclusive of any tax, for the product
+    #
+    # @return [BigDecimal]
+    def price_including_tax
+      latched_price_including_tax || calculated_price_including_tax
+    end
+
+    def price_including_tax=(value)
+      @price_including_tax = value == nil ? nil : BigDecimal(value)
+    end
+
+    # Has the price including tax been changed?
+    #
+    # @return [Boolean]
+    def price_including_tax_changed?
+      latched_price_including_tax.present? && latched_price_including_tax.round(2) != calculated_price_including_tax.round(2)
+    end
+
+    # The price, inclusive of any tax, for the product.
+    # Calculated by adding tax at the specified rate on
+    # top of the price.
+    #
+    # @return [BigDecimal]
+    def calculated_price_including_tax
+      return self.default_variant.calculated_price_including_tax if self.default_variant
+      tax_rate = self.tax_rate ? self.tax_rate.rate : BigDecimal(0)
+      (self.price_was / BigDecimal(100) * tax_rate) + self.price_was
+    end
+
+    # Gets the latched value for price including tax
+    # from the current product or the default variant
+    #
+    # @return [BigDecimal]
+    def latched_price_including_tax
+      self.default_variant ? self.default_variant.latched_price_including_tax : @price_including_tax
     end
 
     # Is this product currently in stock?
@@ -165,5 +205,18 @@ module Shoppe
       end
     end
 
+    private
+
+    # Considers the latched tax inclusive price before
+    # considering whether or not to adjust the price.
+    def consider_tax
+      if self.price_including_tax_changed?
+        tax_rate = self.tax_rate ? self.tax_rate.rate : BigDecimal(0)
+        tax_multiplier = BigDecimal(1) + (tax_rate / BigDecimal(100))
+        price_excluding_tax = latched_price_including_tax / tax_multiplier
+        self.default_variant ? self.default_variant.price = price_excluding_tax : self.price = price_excluding_tax
+      end
+      self.price_including_tax = nil
+    end
   end
 end

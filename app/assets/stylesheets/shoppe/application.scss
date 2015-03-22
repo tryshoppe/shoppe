@@ -151,8 +151,12 @@ header.main {
 	form {
 		fieldset {
 
-			.splitContainer { margin:0 25px; margin-bottom:15px; height:50px;}
-			.splitContainer:last-child { margin-bottom:0;}
+			.splitContainer { 
+				margin:0 25px; 
+				margin-bottom:25px; 
+				height:50px;
+				&:last-child { margin-bottom:0;}
+			}
 
 			dl {
 				margin:0 25px;
@@ -500,7 +504,7 @@ div.field_with_errors { display:inline;}
 div.moneyInput {
 	overflow:hidden;
 	div.currency {float:left; background:#f3f6ec; color:#74884a; padding:5px; width:20px; text-align:center;border:1px solid #c5ceb1; font-size:1.1em; border-right:0;}
-	input {  width:100px; font-size:1.1em;}
+	input { width:75%; font-size:1.1em;}
 }
 
 //

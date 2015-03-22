@@ -3,7 +3,7 @@
   %p.buttons= link_to t('shoppe.variants.back_to_variants'), [@product, :variants], :class => 'button'
   %h2.products= t('shoppe.variants.variants_of', product:@product.name)
 
-= form_for [@product, @variant], :url => @variant.new_record? ? product_variants_path(@product) : product_variant_path(@product, @variant), :html => {:multipart => true} do |f|
+= form_for [@product, @variant], :url => @variant.new_record? ? product_variants_path(@product) : product_variant_path(@product, @variant), :html => {:multipart => true, :class => 'productForm'} do |f|
   = f.error_messages
   = field_set_tag t('shoppe.variants.product_information') do
     .splitContainer
@@ -23,17 +23,28 @@
         = attachment_preview @variant.default_image, :hide_if_blank => true
         %p= f.file_field :default_image_file
   = field_set_tag t("shoppe.variants.pricing") do
+    %dl
+      %dt= f.label :tax_rate_id, t('shoppe.products.tax_rate')
+      %dd= f.collection_select :tax_rate_id, Shoppe::TaxRate.ordered, :id, :description, {:include_blank => true}, {:class => 'chosen-with-deselect', :data => {:placeholder => t('shoppe.variants.no_tax')}}
     .splitContainer
       %dl.third
-        %dt= f.label :price, t('shoppe.variants.price')
-        %dd= f.text_field :price, :class => 'text'
+        %dt= f.label :price, t('shoppe.products.price')
+        %dd
+          .moneyInput
+            .currency= Shoppe.settings.currency_unit.html_safe
+            = f.text_field :price, :class => 'text'
       %dl.third
-        %dt= f.label :cost_price, t('shoppe.variants.cost_price')
-        %dd= f.text_field :cost_price, :class => 'text'
+        %dt= f.label :price_including_tax, t('shoppe.products.price_including_tax', tax_name: Shoppe.settings.tax_name)
+        %dd
+          .moneyInput
+            .currency= Shoppe.settings.currency_unit.html_safe
+            = f.text_field :price_including_tax, :class => 'text'
       %dl.third
-        %dt= f.label :tax_rate_id, t('shoppe.variants.tax_rate')
-        %dd= f.collection_select :tax_rate_id, Shoppe::TaxRate.ordered, :id, :description, {:include_blank => true}, {:class => 'chosen-with-deselect', :data => {:placeholder => t('shoppe.variants.no_tax')}}
-
+        %dt= f.label :cost_price, t('shoppe.products.cost_price')
+        %dd
+          .moneyInput
+            .currency= Shoppe.settings.currency_unit.html_safe
+            = f.text_field :cost_price, :class => 'text'
   = field_set_tag t('shoppe.variants.stock_control') do
     .splitContainer
       %dl.half

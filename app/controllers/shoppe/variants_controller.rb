@@ -43,7 +43,7 @@ module Shoppe
     private
 
     def safe_params
-      params[:product].permit(:name, :permalink, :sku, :default_image_file, :price, :cost_price, :tax_rate_id, :weight, :stock_control, :active, :default)
+      params[:product].permit(:name, :permalink, :sku, :default_image_file, :price, :price_including_tax, :cost_price, :tax_rate_id, :weight, :stock_control, :active, :default)
     end
 
   end

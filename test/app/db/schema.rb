@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026181716) do
+ActiveRecord::Schema.define(version: 20141103003428) do
 
   create_table "nifty_attachments", force: true do |t|
     t.integer  "parent_id"
@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20141026181716) do
   create_table "shoppe_delivery_service_prices", force: true do |t|
     t.integer  "delivery_service_id"
     t.string   "code"
-    t.decimal  "price",               precision: 8, scale: 2
-    t.decimal  "cost_price",          precision: 8, scale: 2
+    t.decimal  "price",               precision: 12, scale: 6
+    t.decimal  "cost_price",          precision: 8,  scale: 2
     t.integer  "tax_rate_id"
-    t.decimal  "min_weight",          precision: 8, scale: 2
-    t.decimal  "max_weight",          precision: 8, scale: 2
+    t.decimal  "min_weight",          precision: 8,  scale: 2
+    t.decimal  "max_weight",          precision: 8,  scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "country_ids"
@@ -79,12 +79,12 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.integer  "order_id"
     t.integer  "ordered_item_id"
     t.string   "ordered_item_type"
-    t.integer  "quantity",                                  default: 1
-    t.decimal  "unit_price",        precision: 8, scale: 2
-    t.decimal  "unit_cost_price",   precision: 8, scale: 2
-    t.decimal  "tax_amount",        precision: 8, scale: 2
-    t.decimal  "tax_rate",          precision: 8, scale: 2
-    t.decimal  "weight",            precision: 8, scale: 3
+    t.integer  "quantity",                                   default: 1
+    t.decimal  "unit_price",        precision: 12, scale: 6
+    t.decimal  "unit_cost_price",   precision: 8,  scale: 2
+    t.decimal  "tax_amount",        precision: 8,  scale: 2
+    t.decimal  "tax_rate",          precision: 8,  scale: 2
+    t.decimal  "weight",            precision: 8,  scale: 3
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -112,10 +112,10 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "delivery_service_id"
-    t.decimal  "delivery_price",            precision: 8, scale: 2
-    t.decimal  "delivery_cost_price",       precision: 8, scale: 2
-    t.decimal  "delivery_tax_rate",         precision: 8, scale: 2
-    t.decimal  "delivery_tax_amount",       precision: 8, scale: 2
+    t.decimal  "delivery_price",            precision: 12, scale: 6
+    t.decimal  "delivery_cost_price",       precision: 8,  scale: 2
+    t.decimal  "delivery_tax_rate",         precision: 8,  scale: 2
+    t.decimal  "delivery_tax_amount",       precision: 8,  scale: 2
     t.integer  "accepted_by"
     t.integer  "shipped_by"
     t.string   "consignment_number"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.integer  "rejected_by"
     t.string   "ip_address"
     t.text     "notes"
-    t.boolean  "separate_delivery_address",                         default: false
+    t.boolean  "separate_delivery_address",                          default: false
     t.string   "delivery_name"
     t.string   "delivery_address1"
     t.string   "delivery_address2"
@@ -131,8 +131,8 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.string   "delivery_address4"
     t.string   "delivery_postcode"
     t.integer  "delivery_country_id"
-    t.decimal  "amount_paid",               precision: 8, scale: 2, default: 0.0
-    t.boolean  "exported",                                          default: false
+    t.decimal  "amount_paid",               precision: 8,  scale: 2, default: 0.0
+    t.boolean  "exported",                                           default: false
     t.string   "invoice_number"
   end
 
@@ -190,17 +190,17 @@ ActiveRecord::Schema.define(version: 20141026181716) do
     t.string   "permalink"
     t.text     "description"
     t.text     "short_description"
-    t.boolean  "active",                                      default: true
-    t.decimal  "weight",              precision: 8, scale: 3, default: 0.0
-    t.decimal  "price",               precision: 8, scale: 2, default: 0.0
-    t.decimal  "cost_price",          precision: 8, scale: 2, default: 0.0
+    t.boolean  "active",                                       default: true
+    t.decimal  "weight",              precision: 8,  scale: 3, default: 0.0
+    t.decimal  "price",               precision: 12, scale: 6, default: 0.0
+    t.decimal  "cost_price",          precision: 8,  scale: 2, default: 0.0
     t.integer  "tax_rate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "featured",                                    default: false
+    t.boolean  "featured",                                     default: false
     t.text     "in_the_box"
-    t.boolean  "stock_control",                               default: true
-    t.boolean  "default",                                     default: false
+    t.boolean  "stock_control",                                default: true
+    t.boolean  "default",                                      default: false
   end
 
   add_index "shoppe_products", ["parent_id"], name: "index_shoppe_products_on_parent_id", using: :btree

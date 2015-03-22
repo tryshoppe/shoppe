@@ -1,4 +1,4 @@
-= form_for @product, :html => {:multipart => true} do |f|
+= form_for @product, :html => {:multipart => true, :class => 'productForm'} do |f|
   = f.error_messages
   = field_set_tag  t('shoppe.products.product_information') do
     %dl
@@ -69,6 +69,9 @@
 
   - unless @product.has_variants?
     = field_set_tag t('shoppe.products.pricing') do
+      %dl
+        %dt= f.label :tax_rate_id, t('shoppe.products.tax_rate')
+        %dd= f.collection_select :tax_rate_id, Shoppe::TaxRate.ordered, :id, :description, {:include_blank => true}, {:class => 'chosen-with-deselect', :data => {:placeholder => t('shoppe.products.no_tax')}}
       .splitContainer
         %dl.third
           %dt= f.label :price, t('shoppe.products.price')
@@ -77,15 +80,17 @@
               .currency= Shoppe.settings.currency_unit.html_safe
               = f.text_field :price, :class => 'text'
         %dl.third
+          %dt= f.label :price_including_tax, t('shoppe.products.price_including_tax', tax_name: Shoppe.settings.tax_name)
+          %dd
+            .moneyInput
+              .currency= Shoppe.settings.currency_unit.html_safe
+              = f.text_field :price_including_tax, :class => 'text'
+        %dl.third
           %dt= f.label :cost_price, t('shoppe.products.cost_price')
           %dd
             .moneyInput
               .currency= Shoppe.settings.currency_unit.html_safe
               = f.text_field :cost_price, :class => 'text'
-        %dl.third
-          %dt= f.label :tax_rate_id, t('shoppe.products.tax_rate')
-          %dd= f.collection_select :tax_rate_id, Shoppe::TaxRate.ordered, :id, :description, {:include_blank => true}, {:class => 'chosen-with-deselect', :data => {:placeholder => t('shoppe.products.no_tax')}}
-
     = field_set_tag  t('shoppe.products.stock_control') do
       .splitContainer
         %dl.half

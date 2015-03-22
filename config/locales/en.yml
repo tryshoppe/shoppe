@@ -424,7 +424,8 @@ en:
       on_sale?: On sale?
       on_sale_info:  If checked, this product will be displayed within the public store
       permalink: Permalink
-      price: Price
+      price: Sale Price
+      price_including_tax: Including %{tax_name}
       price_variants: Price/Variants
       pricing: Pricing
       product_category: Product category
