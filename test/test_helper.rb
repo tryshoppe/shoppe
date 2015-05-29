@@ -4,6 +4,7 @@ require "rails/test_help"
 
 # Factory Girl 
 require 'factory_girl'
+require 'shoulda'
 FactoryGirl.find_definitions
 class ActiveSupport::TestCase
   
