@@ -108,6 +108,10 @@ module Shoppe
       self.product_categories.first rescue nil
     end
 
+    def to_param
+      permalink
+    end
+
     # Search for products which include the given attributes and return an active record
     # scope of these products. Chainable with other scopes and with_attributes methods.
     # For example:

@@ -51,6 +51,10 @@ module Shoppe
       parent.hierarchy_array.concat [self]
     end
 
+    def to_param
+      permalink
+    end
+
     private
 
     def set_permalink
