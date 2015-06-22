@@ -29,7 +29,7 @@ module Shoppe
     # No descendents
     scope :except_descendants, ->(record) { where.not(id: (Array.new(record.descendants) << record).flatten) }
 
-    translates :name, :permalink, :description, :short_description
+    translates :name, :description, :short_description
     scope :ordered, -> { includes(:translations).order(:name) }
     
     # Set the permalink on callback
@@ -49,6 +49,10 @@ module Shoppe
     def hierarchy_array
       return [self] unless parent
       parent.hierarchy_array.concat [self]
+    end
+
+    def to_param
+      permalink
     end
 
     private

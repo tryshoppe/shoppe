@@ -60,7 +60,7 @@ module Shoppe
     scope :featured, -> {where(:featured => true)}
 
     # Localisations
-    translates :name, :permalink, :description, :short_description
+    translates :name, :description, :short_description
     scope :ordered, -> { includes(:translations).order(:name) }
 
     # Return the name of the product
@@ -106,6 +106,10 @@ module Shoppe
     # @return [Shoppe::ProductCategory]
     def product_category
       self.product_categories.first rescue nil
+    end
+
+    def to_param
+      permalink
     end
 
     # Search for products which include the given attributes and return an active record

@@ -2,7 +2,7 @@ module Shoppe
   class ProductsController < Shoppe::ApplicationController
 
     before_filter { @active_nav = :products }
-    before_filter { params[:id] && @product = Shoppe::Product.root.find(params[:id]) }
+    before_filter { params[:id] && @product = Shoppe::Product.root.find_by(permalink: params[:id]) }
 
     def index
       @products = Shoppe::Product.root.includes(:translations, :stock_level_adjustments, :default_image, :product_categories, :variants).order(:name).group_by(&:product_category).sort_by { |cat,pro| cat.name }

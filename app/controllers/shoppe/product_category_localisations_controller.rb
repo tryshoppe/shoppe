@@ -4,7 +4,7 @@ module Shoppe
   class ProductCategoryLocalisationsController < ApplicationController
 
     before_filter { @active_nav = :product_categories }
-    before_filter { @product_category = Shoppe::ProductCategory.find(params[:product_category_id]) }
+    before_filter { @product_category = Shoppe::ProductCategory.find_by(permalink: params[:product_category_id]) }
     before_filter { params[:id] && @localisation = @product_category.translations.find(params[:id]) }
 
     def index
