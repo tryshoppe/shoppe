@@ -60,7 +60,7 @@ module Shoppe
     scope :featured, -> {where(:featured => true)}
 
     # Localisations
-    translates :name, :permalink, :description, :short_description
+    translates :name, :description, :short_description
     scope :ordered, -> { includes(:translations).order(:name) }
 
     # Return the name of the product
