@@ -39,8 +39,8 @@ module Shoppe
     # Validations
     with_options :if => Proc.new { |p| p.parent.nil? } do |product|
       product.validate :has_at_least_one_product_category
-      product.validates :description, :presence => true
-      product.validates :short_description, :presence => true
+      # product.validates :description, :presence => true
+      # product.validates :short_description, :presence => true
     end
     validates :name, :presence => true
     validates :permalink, :presence => true, :uniqueness => true, :permalink => true
@@ -115,14 +115,14 @@ module Shoppe
     end
 
     # Return attachment for the default_image role
-    # 
+    #
     # @return [String]
     def default_image
       self.attachments.for("default_image")
     end
 
     # Return attachment for the data_sheet role
-    # 
+    #
     # @return [String]
     def data_sheet
       self.attachments.for("data_sheet")
@@ -153,7 +153,7 @@ module Shoppe
 
         # Don't import products where the name is blank
         unless row["name"].nil?
-          if product = find_by(name: row["name"])
+          if product = Shoppe::Product.joins(:translations).find_by(name: row["name"])
             # Dont import products with the same name but update quantities if they're not the same
             qty = row["qty"].to_i
             if qty > 0 && qty != product.stock
@@ -165,13 +165,13 @@ module Shoppe
             product.sku = row["sku"]
             product.description = row["description"]
             product.short_description = row["short_description"]
-            product.weight = row["weight"]
+            product.weight = row["weight"].nil? ? 0 : row["weight"]
             product.price = row["price"].nil? ? 0 : row["price"]
             product.permalink  = row["permalink"]
-
+            product.stock_control = row["stock_control"].nil? ? false : true
             product.product_categories << begin
-              if Shoppe::ProductCategory.find_by(name: row["category_name"]).present?
-                Shoppe::ProductCategory.find_by(name: row["category_name"])
+              if Shoppe::ProductCategory.joins(:translations).find_by(name: row["category_name"]).present?
+                Shoppe::ProductCategory.joins(:translations).find_by(name: row["category_name"])
               else
                 Shoppe::ProductCategory.create(name: row["category_name"])
               end
