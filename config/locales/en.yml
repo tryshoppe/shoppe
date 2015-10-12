@@ -43,14 +43,16 @@ en:
 
     attributes:
       shoppe/order:
-        billing_address1: Billing address1
-        billing_address3: Billing address3
-        billing_address4: Billing address4
+        billing_address1: Billing address 1
+        billing_address2: Billing address 2
+        billing_address3: Billing address 3
+        billing_address4: Billing address 4
         billing_country: Billing country
         billing_postcode: Billing postcode
-        delivery_address1: Delivery address1
-        delivery_address3: Delivery address3
-        delivery_address4: Delivery address4
+        delivery_address1: Delivery address 1
+        delivery_address2: Delivery address 2
+        delivery_address3: Delivery address 3
+        delivery_address4: Delivery address 4
         delivery_country: Delivery country
         delivery_name: Delivery name
         delivery_service_id: Delivery service
@@ -186,7 +188,7 @@ en:
     import: Import
     remove: Remove
 
-    removed_it: "%{it} has been removed successfully"  
+    removed_it: "%{it} has been removed successfully"
     save_settings: Save Settings
     separate_delivery_address: Separate delivery address
     service_available: Service will be available for use
@@ -210,8 +212,8 @@ en:
     tax_rate_delete_confirm: Are you sure you wish to remove this tax_rate?
     tax_rate_details: Rate Details
     tax_rate_new: New tax rate
-    tax_rate_note: Do NOT edit tax rates that are already in use. 
-      Care should be taken when editing tax rates, as this may affect existing orders. 
+    tax_rate_note: Do NOT edit tax rates that are already in use.
+      Care should be taken when editing tax rates, as this may affect existing orders.
       while creating a new tax rate, you must delete it and create a new one. When you delete a tax rate
       it is not removed from the system, only deactivated, so existing orders stay unaffected.
     tax_rates: Tax Rates
@@ -222,7 +224,7 @@ en:
     total_weight: Total weight
     tracking_url: Tracking URL
     unknown: Unknown
-    updated_it: "%{it} has been updated successfully"  
+    updated_it: "%{it} has been updated successfully"
     users: Users
     users_back: Back to users
     user_delete_confirm: Are you sure you wish to remove this user?
