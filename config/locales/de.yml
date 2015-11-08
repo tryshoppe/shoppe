@@ -43,14 +43,16 @@ de:
 
     attributes:
       shoppe/order:
-        billing_address1: Rechnungsanschrift1
-        billing_address3: Rechnungsanschrift3
-        billing_address4: Rechnungsanschrift4
+        billing_address1: Rechnungsanschrift 1
+        billing_address2: Rechnungsanschrift 2
+        billing_address3: Rechnungsanschrift 3
+        billing_address4: Rechnungsanschrift 4
         billing_country: Rechnungsanschrift / Land
         billing_postcode: Rechnungsanschrift / PLZ
-        delivery_address1: Lieferanschrift1
-        delivery_address3: Lieferanschrift3
-        delivery_address4: Lieferanschrift4
+        delivery_address1: Lieferanschrift 1
+        delivery_address2: Lieferanschrift 2
+        delivery_address3: Lieferanschrift 3
+        delivery_address4: Lieferanschrift 4
         delivery_country: Lieferanschrift / Land
         delivery_name: Lieferanschrift / Name
         delivery_service_id: Lieferdienst

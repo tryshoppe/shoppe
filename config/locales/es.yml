@@ -44,11 +44,13 @@ es:
     attributes:
       shoppe/order:
         billing_address1: Dirección de facturación 1
+        billing_address2: Dirección de facturación 2
         billing_address3: Dirección de facturación 3
         billing_address4: Dirección de facturación 4
         billing_country: País de facturación
         billing_postcode: Código postal de facturación
         delivery_address1: Dirección de envío 1
+        delivery_address2: Dirección de envío 2
         delivery_address3: Dirección de envío 3
         delivery_address4: Dirección de envío 4
         delivery_country: País de envío

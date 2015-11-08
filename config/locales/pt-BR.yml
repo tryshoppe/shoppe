@@ -43,14 +43,16 @@ pt-BR:
 
     attributes:
       shoppe/order:
-        billing_address1: Endereço de cobrança1
-        billing_address3: Endereço de cobrança3
-        billing_address4: Endereço de cobrança4
+        billing_address1: Endereço de cobrança 1
+        billing_address2: Endereço de cobrança 2
+        billing_address3: Endereço de cobrança 3
+        billing_address4: Endereço de cobrança 4
         billing_country: País de cobrança
         billing_postcode: Código postal de cobrança
-        delivery_address1: Endereço de entrega1
-        delivery_address3: Endereço de entrega3
-        delivery_address4: Endereço de entrega4
+        delivery_address1: Endereço de entrega 1
+        delivery_address2: Endereço de entrega 2
+        delivery_address3: Endereço de entrega 3
+        delivery_address4: Endereço de entrega 4
         delivery_country: País de entrega
         delivery_name: Nome de entrega
         delivery_service_id: Serviço de entrega
