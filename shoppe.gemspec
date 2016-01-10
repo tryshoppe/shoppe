@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "roo", ">= 1.13.0", "< 1.14"
   s.add_dependency "awesome_nested_set", "~> 3.0.2"
   s.add_dependency "globalize"
+  s.add_dependency 'rails-i18n'
 
   s.add_dependency "nifty-key-value-store", ">= 1.0.1", "< 2.0.0"
   s.add_dependency "nifty-utils", ">= 1.0", "< 1.1"
