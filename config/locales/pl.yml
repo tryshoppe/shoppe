@@ -601,6 +601,11 @@ pl:
       destroy_notice: Płatność została usunięta
       refund_notice: Zwrot został przetworzony z powodzeniem
 
+    addresses:
+      created_successfully: Address has been created successfully.
+      updated_successfully: Address has been updated successfully.
+      deleted_successfully: Address has been deleted successfully.
+
     navigation:
       admin_primary:
         orders: Zamówienia

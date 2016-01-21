@@ -716,6 +716,11 @@ cs:
       updated_successfully: Zákazník byl úspěšně upraven.
       deleted_successfully: Zákazník byl úspěšně smazán.
 
+    addresses:
+      created_successfully: Adresa byla úspěšně vytvořena.
+      updated_successfully: Adresa byla úspěšně upravena.
+      deleted_successfully: Adresa byla úspěšně smazána.
+
     navigation:
       admin_primary:
         customers: Zákazníci

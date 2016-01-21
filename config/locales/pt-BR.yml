@@ -594,6 +594,11 @@ pt-BR:
       destroy_notice: O Pagamento foi removido com sucesso
       refund_notice: A Devolução foi processada com sucesso.
 
+    addresses:
+      created_successfully: Address has been created successfully.
+      updated_successfully: Address has been updated successfully.
+      deleted_successfully: Address has been deleted successfully.
+
     navigation:
       admin_primary:
         orders: Pedidos

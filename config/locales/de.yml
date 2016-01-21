@@ -645,6 +645,11 @@ de:
       updated_successfully: Kunde wurde erfolgreich aktualisiert.
       deleted_successfully: Kunde wurde erfolgreich gelöscht.
 
+    addresses:
+      created_successfully: Adresse wurde erfolgreich erstellt.
+      updated_successfully: Adresse wurde erfolgreich aktualisiert.
+      deleted_successfully: Adresse wurde erfolgreich gelöscht.
+
     navigation:
       admin_primary:
         orders: Bestellungen

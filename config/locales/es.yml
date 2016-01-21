@@ -682,6 +682,11 @@ es:
       no_localisations: Ninguna traducción a mostrar.
       delete_confirmation: ¿Seguro?
 
+    addresses:
+      created_successfully: Address has been created successfully.
+      updated_successfully: Address has been updated successfully.
+      deleted_successfully: Address has been deleted successfully.
+
     navigation:
       admin_primary:
         customers: Clientes

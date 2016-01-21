@@ -593,6 +593,11 @@ es-US:
       destroy_notice: Pago removido satisfactoriamente
       refund_notice: Reembolso procesado satisfactoriamente
 
+    addresses:
+      created_successfully: Address has been created successfully.
+      updated_successfully: Address has been updated successfully.
+      deleted_successfully: Address has been deleted successfully.
+
     navigation:
       admin_primary:
         customers: Clientes
