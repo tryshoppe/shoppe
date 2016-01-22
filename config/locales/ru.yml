@@ -8,14 +8,14 @@ ru:
         one: Способ доставки
         other: Способы доставки
       shoppe/delivery_service_price:
-        one: Цена способа доставки
-        other: Цены способов доставки
+        one: Стоимость доставки
+        other: Стоимость доставок
       shoppe/order:
         one: Заказ
         other: Заказы
       shoppe/order_item:
-        one: Заказанный товар
-        other: Заказанный товар
+        one: Предмет заказа
+        other: Предметы заказа
       shoppe/payment:
         one: Оплата
         other: Оплаты
@@ -23,7 +23,7 @@ ru:
         one: Товар
         other: Товары
       shoppe/product_attribute:
-        one: Парамететр товара
+        one: Параметр товара
         other: Параметры товара
       shoppe/product_category:
         one: Категория товара
@@ -35,8 +35,8 @@ ru:
         one: Корректировка складских запасов
         other: Корректировка складских запасов
       shoppe/tax_rate:
-        one: Налог
-        other: Налоги
+        one: ставка НДС
+        other: ставки НДС
       shoppe/user:
         one: Пользователь
         other: Пользователи
@@ -54,7 +54,7 @@ ru:
         delivery_country: Страна доставки
         delivery_name: Имя получателя
         delivery_service_id: Способ доставки
-        delivery_postcode: Индекс адреса доставки
+        delivery_postcode: индекс для доставки
         email_address: Электропочта
         first_name: Имя
         last_name: Фамилия
@@ -68,7 +68,7 @@ ru:
         courier: Курьерская служба
       shoppe/delivery_service_price:
         code: Код
-        cost_price: Цена поставщика
+        cost_price: Закупочная цена
         max_weight: Максимальный вес
         min_weight: Минимальный вес
         price: Цена для пользователя
@@ -284,8 +284,8 @@ ru:
       new_price: Новая цена
       no_tax: Без налога
       price: Цена
-      pricing: Ценовая политика
-      pricing_for: "Ценовая политика для %{delivery_name}"
+      pricing: Ценообразование
+      pricing_for: "Ценообразование для %{delivery_name}"
       tax_rate: Уровень налога
       update_notice: Цена успешно изменена
       weight_allowance: Допустимый вес
@@ -296,17 +296,17 @@ ru:
     delivery_services:
       active?: Активно?
       active: Активировать
-      active_info: Способ доставки будет доступна для использования
+      active_info: Способ доставки будет доступен к использованию
       back: Назад к способам доставки
       code: Уникальный код
       courier: Курьерская компания
       courier_name: Наименование курьерской компании
-      create_notice: Способ доставки успешно создана
+      create_notice: Способ доставки успешно создан
       default?: По умолчанию?
       default: По умолчанию
       default_info: Служба будет использоваться по умолчанию (если доступна)
       delivery_services: Способы доставки
-      destroy_notice: Способ доставки успешно удалена
+      destroy_notice: Способ доставки успешно удален
       delete_confirmation: Вы действительно хотите удалить способ доставки?
       details: Название доставки
       name: Наименование
@@ -316,7 +316,7 @@ ru:
       set_prices: Установить цены
       tracking_url: Адрес трекинга (URL)
       tracking_url_help_html: Используйте <code>{{consignment_number}}</code> для вставки в качестве номера накладной.
-      update_notice: Способ доставки успешно изменена
+      update_notice: Способ доставки успешно изменен
 
     imports:
       example_file: Пример файла
@@ -352,7 +352,7 @@ ru:
       first_name: Имя
       from_payment: по платежу
       id: ID
-      in_progress_warning: Этот заказ пока еще формируется клиентем. В настоящий момент вы можете только просматривать товары в его заказе.
+      in_progress_warning: Этот заказ пока еще формируется клиентом. В настоящий момент вы можете только просматривать товары в его заказе.
       invoice_number: Номер счета
       insufficient_stock_order: "Недостаточно складских запасов для товара %{out_of_stock_items}. Количество изменено на максимальное доступное на складе."
       item: Позиция
@@ -363,7 +363,7 @@ ru:
       name: Имя
       new_order: Новый заказ
       no_delivery_required: Доставка не требуется для этого заказа.
-      no_orders: Нез заказов для отображения.
+      no_orders: Нет заказов для отображения.
       no_payments: Нет записей о платежах для этого заказа
       notes: Примечания
       number: Номер
@@ -560,8 +560,7 @@ ru:
 
     sessions:
       admin_login: Вход для администратора
-      create_alert: The email address and/or password you have entered is invalid. Please check and try again.
-      create_alert: Электронная почта или пароль не правильный. Пожалуйста, попробуйте снова.
+      create_alert: Электронная почта или пароль неправильный. Пожалуйста, попробуйте снова.
       back_to_login: Назад к странице входа
       email: Электропочта
       login: Логин

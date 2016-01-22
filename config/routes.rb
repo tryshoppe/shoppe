@@ -6,7 +6,7 @@ Shoppe::Engine.routes.draw do
     post :search, :on => :collection
     resources :addresses
   end
-  
+
   resources :product_categories do
     resources :localisations, controller: "product_category_localisations"
   end
@@ -46,7 +46,9 @@ Shoppe::Engine.routes.draw do
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  match 'login/reset' => 'sessions#reset', :via => [:get, :post]
+
+  get 'login/reset' => 'password_resets#new'
+  post 'login/reset' => 'password_resets#create'
 
   delete 'logout' => 'sessions#destroy'
   root :to => 'dashboard#home'
