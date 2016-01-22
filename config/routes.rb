@@ -8,11 +8,11 @@ Shoppe::Engine.routes.draw do
   end
 
   resources :product_categories do
-    resources :localisations, controller: "product_category_localisations"
+    resources :localisations, controller: 'product_category_localisations'
   end
   resources :products do
     resources :variants
-    resources :localisations, controller: "product_localisations"
+    resources :localisations, controller: 'product_localisations'
     collection do
       get :import
       post :import

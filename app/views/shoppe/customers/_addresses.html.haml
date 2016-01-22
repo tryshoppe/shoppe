@@ -10,7 +10,7 @@
       %tbody
         - if @addresses.empty?
           %tr.empty
-            %td{:colspan => 4}= t('shoppe.customers.no_addresses')
+            %td{colspan: 4}= t('shoppe.customers.no_addresses')
         - else
           - for address in @addresses
             %tr

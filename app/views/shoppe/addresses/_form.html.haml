@@ -1,33 +1,33 @@
 = form_for @address, url: [@customer, @address] do |f|
   = f.error_messages
 
-  = field_set_tag "Address Information" do
+  = field_set_tag 'Address Information' do
     %dl
       %dt= f.label :address_type
-      %dd= f.select :address_type, Shoppe::Address::TYPES, {}, :class => "chosen"
+      %dd= f.select :address_type, Shoppe::Address::TYPES, {}, class: 'chosen'
     .splitContainer
       %dl.third
         %dt= f.label :address1
-        %dd= f.text_field :address1, :class => "text"
+        %dd= f.text_field :address1, class: 'text'
       %dl.third
         %dt= f.label :address2
-        %dd= f.text_field :address2, :class => "text"
+        %dd= f.text_field :address2, class: 'text'
       %dl.third
         %dt= f.label :address3
-        %dd= f.text_field :address3, :class => "text"
+        %dd= f.text_field :address3, class: 'text'
     .splitContainer
       %dl.third
         %dt= f.label :address4
-        %dd= f.text_field :address4, :class => "text"
+        %dd= f.text_field :address4, class: 'text'
       %dl.third
         %dt= f.label :postcode
-        %dd= f.text_field :postcode, :class => "text"
+        %dd= f.text_field :postcode, class: 'text'
       %dl.third
         %dt= f.label :country_id
-        %dd= f.collection_select :country_id, Shoppe::Country.ordered, :id, :name, {:include_blank => true}, {:class => 'chosen', :data => { :placeholder => t('shoppe.orders.select_country')}} 
+        %dd= f.collection_select :country_id, Shoppe::Country.ordered, :id, :name, {include_blank: true}, {class: 'chosen', data: { placeholder: t('shoppe.orders.select_country')}} 
 
   %p.submit
     - unless @address.new_record?
-      %span.right= link_to t('shoppe.delete'), [@customer, @address], :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this address?"}
-    = f.submit :class => 'button green', data: {disable_with: (@address.new_record? ? "Creating Address..." : "Updating Address...")}
-    = link_to t('shoppe.cancel'), :customers, :class => 'button'
+      %span.right= link_to t('shoppe.delete'), [@customer, @address], class: 'button purple', method: :delete, data: {confirm: 'Are you sure you wish to remove this address?'}
+    = f.submit class: 'button green', data: {disable_with: (@address.new_record? ? 'Creating Address...' : 'Updating Address...')}
+    = link_to t('shoppe.cancel'), :customers, class: 'button'

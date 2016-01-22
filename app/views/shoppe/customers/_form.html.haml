@@ -5,23 +5,23 @@
     .splitContainer
       %dl.third
         %dt= f.label :first_name, t('shoppe.customers.first_name')
-        %dd= f.text_field :first_name, :class => "text focus"
+        %dd= f.text_field :first_name, class: 'text focus'
       %dl.third
         %dt= f.label :last_name, t('shoppe.customers.last_name')
-        %dd= f.text_field :last_name, :class => "text"
+        %dd= f.text_field :last_name, class: 'text'
       %dl.third
         %dt= f.label :company, t('shoppe.customers.company')
-        %dd= f.text_field :company, :class => "text"
+        %dd= f.text_field :company, class: 'text'
     .splitContainer
       %dl.third
         %dt= f.label :email, t('shoppe.customers.email')
-        %dd= f.text_field :email, :class => "text"
+        %dd= f.text_field :email, class: 'text'
       %dl.third
         %dt= f.label :phone, t('shoppe.customers.phone')
-        %dd= f.text_field :phone, :class => "text"
+        %dd= f.text_field :phone, class: 'text'
       %dl.third
         %dt= f.label :mobile, t('shoppe.customers.mobile_phone')
-        %dd= f.text_field :mobile, :class => "text"
+        %dd= f.text_field :mobile, class: 'text'
 
   %p.submit
     - unless @customer.new_record?
@@ -34,4 +34,4 @@
     = f.submit t('shoppe.customers.save'),
                class: 'button green',
                data: {disable_with: (@customer.new_record? ? t('shoppe.customers.creating_customer') : t('shoppe.customers.updating_customer'))}
-    = link_to t('shoppe.customers.cancel'), :customers, :class => 'button'
+    = link_to t('shoppe.customers.cancel'), :customers, class: 'button'

@@ -1,8 +1,8 @@
 - @page_title = t('shoppe.customers.customers') + " - #{@customer.name}"
 = content_for :header do
   %p.buttons
-    = link_to t('shoppe.customers.new_address'), [:new, @customer, :address], class: "button"
-    = link_to t('shoppe.customers.edit'), [:edit, @customer], class: "button"
+    = link_to t('shoppe.customers.new_address'), [:new, @customer, :address], class: 'button'
+    = link_to t('shoppe.customers.edit'), [:edit, @customer], class: 'button'
   %h2.users= t('shoppe.customers.customers') + "- #{@customer.name}"
 
 #customer
@@ -22,10 +22,10 @@
         %dt= t('shoppe.customers.mobile_phone')
         %dd= @customer.mobile
 
-  = field_set_tag t('shoppe.customers.addresses'), :class => 'padded' do
-    = render "addresses"
+  = field_set_tag t('shoppe.customers.addresses'), class: 'padded' do
+    = render 'addresses'
 
-  = field_set_tag t('shoppe.orders.orders'), :class => 'padded' do
+  = field_set_tag t('shoppe.orders.orders'), class: 'padded' do
     .table
       %table.data
         %thead
@@ -38,7 +38,7 @@
         %tbody
           - if @orders.empty?
             %tr.empty
-              %td{:colspan => 6}= t('shoppe.orders.no_orders')
+              %td{colspan: 6}= t('shoppe.orders.no_orders')
           - else
             - for order in @orders
               %tr
@@ -49,4 +49,4 @@
                     - for item in order.order_items
                       %li #{item.quantity} x #{item.ordered_item.full_name}
                 %td= number_to_currency order.total
-                %td= boolean_tag order.paid_in_full?, nil, :true_text => number_to_currency(order.amount_paid), :false_text => number_to_currency(order.amount_paid)
+                %td= boolean_tag order.paid_in_full?, nil, true_text: number_to_currency(order.amount_paid), false_text: number_to_currency(order.amount_paid)
