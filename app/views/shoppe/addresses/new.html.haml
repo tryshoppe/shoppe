@@ -1,5 +1,5 @@
 - @page_title = "New Address for #{@customer.name}"
 = content_for :header do
-  %p.buttons= link_to "Back to customer", @customer, :class => 'button'
+  %p.buttons= link_to 'Back to customer', @customer, class: 'button'
   %h2.users New Address
-= render "form"
+= render 'form'

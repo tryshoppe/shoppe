@@ -4,10 +4,10 @@
     .splitContainer
       %dl.half
         %dt= f.label :name, t('shoppe.delivery_services.name')
-        %dd= f.text_field :name, :class => 'focus text'
+        %dd= f.text_field :name, class: 'focus text'
       %dl.half
         %dt= f.label :code, t('shoppe.delivery_services.code')
-        %dd= f.text_field :code, :class => 'text'
+        %dd= f.text_field :code, class: 'text'
     .splitContainer
       %dl.half
         %dt= f.label :active, t('shoppe.delivery_services.active')
@@ -24,15 +24,15 @@
     .splitContainer
       %dl.half
         %dt= f.label :courier,  t('shoppe.delivery_services.courier_name')
-        %dd= f.text_field :courier, :class => 'text'
+        %dd= f.text_field :courier, class: 'text'
       %dl.half
         %dt= f.label :tracking_url,  t('shoppe.delivery_services.tracking_url')
         %dd
-          = f.text_field :tracking_url, :class => 'text'
+          = f.text_field :tracking_url, class: 'text'
           %p.help=  t('shoppe.delivery_services.tracking_url_help_html')
 
   %p.submit
     - unless @delivery_service.new_record?
-      %span.right= link_to  t('shoppe.delete'), [@delivery_service], :class => 'button purple', :method => :delete, :data => {:confirm => t('shoppe.delivery_services.delete_confirmation')}
-    = f.submit t('shoppe.submit'), :class => 'button green'
-    = link_to t('shoppe.cancel'), :delivery_services, :class => 'button'
+      %span.right= link_to  t('shoppe.delete'), [@delivery_service], class: 'button purple', method: :delete, data: {confirm: t('shoppe.delivery_services.delete_confirmation')}
+    = f.submit t('shoppe.submit'), class: 'button green'
+    = link_to t('shoppe.cancel'), :delivery_services, class: 'button'

@@ -5,21 +5,21 @@
     .splitContainer
       %dl.third
         %dt= f.label :name, t('shoppe.countries.name')
-        %dd= f.text_field :name, :class => 'focus text'
+        %dd= f.text_field :name, class: 'focus text'
       %dl.third
         %dt= f.label :code2, t('shoppe.countries.iso_alpha_2')
-        %dd= f.text_field :code2, :class => 'text'
+        %dd= f.text_field :code2, class: 'text'
       %dl.third
         %dt= f.label :code3, t('shoppe.countries.iso_alpha_3')
-        %dd= f.text_field :code3, :class => 'text'
+        %dd= f.text_field :code3, class: 'text'
 
     .splitContainer
       %dl.third
         %dt= f.label :continent, t('shoppe.countries.continent')
-        %dd= f.text_field :continent, :class => 'text'
+        %dd= f.text_field :continent, class: 'text'
       %dl.third
         %dt= f.label :tld, t('shoppe.countries.tld')
-        %dd= f.text_field :tld, :class => 'text'
+        %dd= f.text_field :tld, class: 'text'
       %dl.third
         %dt= f.label :eu_member, t('shoppe.countries.eu_member')
         %dd.checkbox
@@ -29,7 +29,7 @@
   %p.submit
     - unless @country.new_record?
       %span.right
-        = link_to t('shoppe.delete'), @country, :class => 'button purple',
-          :method => :delete, :data => {:confirm => t('shoppe.countries.delete_confirmation')}
-    = f.submit t('shoppe.submit'), :class => 'button green'
-    = link_to t('shoppe.cancel'), :countries, :class => 'button'
+        = link_to t('shoppe.delete'), @country, class: 'button purple',
+          method: :delete, data: { confirm: t('shoppe.countries.delete_confirmation') }
+    = f.submit t('shoppe.submit'), class: 'button green'
+    = link_to t('shoppe.cancel'), :countries, class: 'button'

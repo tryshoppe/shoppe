@@ -717,6 +717,11 @@ ru:
       updated_successfully: Данные клиента успешно изменен
       deleted_successfully: Клиент успешно удален
 
+    addresses:
+      created_successfully: Aдрес успешно создан
+      updated_successfully: Aдрес клиента успешно изменен
+      deleted_successfully: Aдрес успешно удален
+
     navigation:
       admin_primary:
         customers: Клиенты

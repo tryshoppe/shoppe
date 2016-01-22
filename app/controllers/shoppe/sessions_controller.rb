@@ -2,7 +2,7 @@ module Shoppe
   class SessionsController < Shoppe::ApplicationController
 
     layout 'shoppe/sub'
-    skip_before_filter :login_required, :only => [:new, :create]
+    skip_before_filter :login_required, only: [:new, :create]
 
     def create
       if user = Shoppe::User.authenticate(params[:email_address], params[:password])
@@ -10,7 +10,7 @@ module Shoppe
         redirect_to :orders
       else
         flash.now[:alert] =  t('shoppe.sessions.create_alert')
-        render :action => "new"
+        render action: 'new'
       end
     end
 

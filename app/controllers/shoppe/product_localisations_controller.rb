@@ -1,4 +1,4 @@
-require "globalize"
+require 'globalize'
 
 module Shoppe
   class ProductLocalisationsController < ApplicationController
@@ -13,7 +13,7 @@ module Shoppe
 
     def new
       @localisation = @product.translations.new
-      render :action => "form"
+      render action: 'form'
     end
 
     def create
@@ -22,9 +22,9 @@ module Shoppe
 
         if @product.update(safe_params)
           I18n.locale = I18n.default_locale
-          redirect_to [@product, :localisations], :flash => { :notice => t("shoppe.localisations.localisation_created") }
+          redirect_to [@product, :localisations], flash: { notice: t('shoppe.localisations.localisation_created') }
         else
-          render :action => "form"
+          render action: 'form'
         end
       else
         redirect_to [@product, :localisations]
@@ -32,20 +32,20 @@ module Shoppe
     end
 
     def edit
-      render :action => "form"
+      render action: 'form'
     end
 
     def update
       if @localisation.update(safe_params)
-        redirect_to [@product, :localisations], :notice => t('shoppe.localisations.localisation_updated')
+        redirect_to [@product, :localisations], flash: { notice: t('shoppe.localisations.localisation_updated') }
       else
-        render :action => "form"
+        render action: 'form'
       end
     end
 
     def destroy
       @localisation.destroy
-      redirect_to [@product, :localisations], :notice =>  t('shoppe.localisations.localisation_destroyed')
+      redirect_to [@product, :localisations], flash: { notice: t('shoppe.localisations.localisation_destroyed') }
     end
 
     private

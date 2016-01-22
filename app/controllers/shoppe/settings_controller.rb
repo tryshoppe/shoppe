@@ -9,8 +9,7 @@ module Shoppe
       end
 
       Shoppe::Setting.update_from_hash(params[:settings].permit!)
-      redirect_to :settings, :notice => t('shoppe.settings.update_notice')
+      redirect_to :settings, notice: t('shoppe.settings.update_notice')
     end
-
   end
 end

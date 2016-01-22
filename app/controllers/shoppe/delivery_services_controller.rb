@@ -15,9 +15,9 @@ module Shoppe
     def create
       @delivery_service = Shoppe::DeliveryService.new(safe_params)
       if @delivery_service.save
-        redirect_to :delivery_services, :flash => {:notice => t('shoppe.delivery_services.create_notice')}
+        redirect_to :delivery_services, flash: { notice: t('shoppe.delivery_services.create_notice') }
       else
-        render :action => "new"
+        render action: 'new'
       end
     end
 
@@ -26,15 +26,15 @@ module Shoppe
 
     def update
       if @delivery_service.update(safe_params)
-        redirect_to [:edit, @delivery_service], :flash => {:notice => t('shoppe.delivery_services.update_notice')}
+        redirect_to [:edit, @delivery_service], flash: { notice: t('shoppe.delivery_services.update_notice') }
       else
-        render :action => "edit"
+        render action: 'edit'
       end
     end
 
     def destroy
       @delivery_service.destroy
-      redirect_to :delivery_services, :flash => {:notice =>t('shoppe.delivery_services.destroy_notice')}
+      redirect_to :delivery_services, flash: { notice: t('shoppe.delivery_services.destroy_notice') }
     end
 
     private
