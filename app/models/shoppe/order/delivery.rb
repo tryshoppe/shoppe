@@ -220,7 +220,7 @@ module Shoppe
         self.status = 'shipped'
         self.consignment_number = consignment_number
         save!
-        Shoppe::OrderMailer.shipped(self).deliver
+        Shoppe::OrderMailer.shipped(self).deliver_later
       end
     end
   end
