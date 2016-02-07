@@ -1,7 +1,5 @@
 module Shoppe
   class OrderItem < ActiveRecord::Base
-    self.table_name = 'shoppe_order_items'
-
     # The associated order
     #
     # @return [Shoppe::Order]
