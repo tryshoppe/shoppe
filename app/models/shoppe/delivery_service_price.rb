@@ -1,8 +1,5 @@
 module Shoppe
   class DeliveryServicePrice < ActiveRecord::Base
-    # Set the table name
-    self.table_name = 'shoppe_delivery_service_prices'
-
     include Shoppe::AssociatedCountries
 
     # The delivery service which this price belongs to

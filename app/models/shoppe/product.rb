@@ -3,8 +3,6 @@ require 'globalize'
 
 module Shoppe
   class Product < ActiveRecord::Base
-    self.table_name = 'shoppe_products'
-
     # Add dependencies for products
     require_dependency 'shoppe/product/product_attributes'
     require_dependency 'shoppe/product/variants'

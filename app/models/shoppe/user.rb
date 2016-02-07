@@ -1,7 +1,5 @@
 module Shoppe
   class User < ActiveRecord::Base
-    self.table_name = 'shoppe_users'
-
     has_secure_password
 
     # Validations

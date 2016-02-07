@@ -3,9 +3,6 @@ module Shoppe
     # An array of all the available types for an address
     TYPES = %w(billing delivery).freeze
 
-    # Set the table name
-    self.table_name = 'shoppe_addresses'
-
     # The customer which this address should be linked to
     #
     # @return [Shoppe::Customer]
