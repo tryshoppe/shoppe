@@ -1,6 +1,6 @@
 # Shoppe
 
-Shoppe is an Rails-based e-commerce platform which allows you to easily introduce a
+Shoppe is a Rails-based e-commerce platform which allows you to easily introduce a
 catalogue-based store into your Rails 4 applications. 
 
 [![Build Status](https://travis-ci.org/tryshoppe/shoppe.svg?branch=master)](https://travis-ci.org/tryshoppe/shoppe)
