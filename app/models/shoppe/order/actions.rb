@@ -12,9 +12,17 @@ module Shoppe
     #
     # @param params [Hash] a hash of order attributes
     # @return [Boolean]
+    #
+    # If you want to display update error
+    # class Order < Shoppe::Order
+    #   def custom_proceed_to_confirm(params = {})
+    #      update!(params)
+    #   end             
+    # end
+
     def proceed_to_confirm(params = {})
       self.status = 'confirming'
-      if update!(params)
+      if update(params)
         true
       else
         false
