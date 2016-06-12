@@ -14,7 +14,7 @@ module Shoppe
     # @return [Boolean]
     def proceed_to_confirm(params = {})
       self.status = 'confirming'
-      if update(params)
+      if update!(params)
         true
       else
         false
