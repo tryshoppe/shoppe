@@ -84,12 +84,26 @@ module Shoppe
       true
     end
 
+    # The tax rate for the product
+    #
+    # @return [BigDecimal]
+    def rate
+      default_variant ? default_variant.tax_rate.rate : tax_rate.rate
+    end
+
     # The price for the product
     #
     # @return [BigDecimal]
     def price
       # self.default_variant ? self.default_variant.price : read_attribute(:price)
       default_variant ? default_variant.price : read_attribute(:price)
+    end
+
+    # The full price for the product (with tax)
+    #
+    # @return [BigDecimal]
+    def full_price
+      price * (rate / BigDecimal(100) + 1) || BigDecimal(0)
     end
 
     # Is this product currently in stock?
