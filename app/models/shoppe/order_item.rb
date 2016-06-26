@@ -113,6 +113,13 @@ module Shoppe
       read_attribute(:unit_price) || ordered_item.try(:price) || BigDecimal(0)
     end
 
+    # The unit price for the item with tax included into price
+    #
+    # @return [BigDecimal]
+    def unit_price_with_tax
+      unit_price * (tax_rate / BigDecimal(100) + 1) || BigDecimal(0)
+    end
+
     # The cost price for the item
     #
     # @return [BigDecimal]
