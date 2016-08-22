@@ -185,6 +185,7 @@ module Shoppe
             end
           end
           product.image_url = row["image_url"] if row["image_url"].present?
+          product.stock_control = false # disabling stock control
           
           product.save!
 
