@@ -13,8 +13,6 @@ module Shoppe
       order.validates :first_name, presence: true
       order.validates :last_name, presence: true
       order.validates :billing_address1, presence: true
-      order.validates :billing_address3, presence: true
-      order.validates :billing_address4, presence: true
       order.validates :billing_postcode, presence: true
       order.validates :billing_country, presence: true
     end
