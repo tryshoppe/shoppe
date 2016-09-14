@@ -1,7 +1,5 @@
 module Shoppe
   class TaxRate < ActiveRecord::Base
-    self.table_name = 'shoppe_tax_rates'
-
     include Shoppe::AssociatedCountries
 
     # The order address types which may be used when choosing how to apply the tax rate

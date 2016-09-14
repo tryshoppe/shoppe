@@ -1,7 +1,5 @@
 module Shoppe
   class ProductAttribute < ActiveRecord::Base
-    self.table_name = 'shoppe_product_attributes'
-
     # Validations
     validates :key, presence: true
 

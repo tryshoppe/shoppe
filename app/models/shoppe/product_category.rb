@@ -9,8 +9,6 @@ module Shoppe
     acts_as_nested_set  dependent: :restrict_with_exception,
                         after_move: :set_ancestral_permalink
 
-    self.table_name = 'shoppe_product_categories'
-
     # Attachments for this product category
     has_many :attachments, as: :parent, dependent: :destroy, class_name: 'Shoppe::Attachment'
 

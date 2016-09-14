@@ -1,8 +1,5 @@
 module Shoppe
   class Attachment < ActiveRecord::Base
-    # Set the table name
-    self.table_name = 'shoppe_attachments'
-
     # Mount the Carrierwave uploader
     mount_uploader :file, AttachmentUploader
 
