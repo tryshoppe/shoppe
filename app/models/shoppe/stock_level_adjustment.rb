@@ -9,7 +9,7 @@ module Shoppe
     # Validations
     validates :description, presence: true
     validates :adjustment, numericality: true
-    validate { errors.add(:adjustment, I18n.t('shoppe.activerecord.attributes.stock_level_adjustment.must_be_greater_or_equal_zero')) if adjustment == 0 }
+    validate { errors.add(:adjustment, I18n.t('shoppe.activerecord.attributes.stock_level_adjustment.must_be_greater_or_equal_zero')) if adjustment <= 0 }
 
     # All stock level adjustments ordered by their created date desending
     scope :ordered, -> { order(id: :desc) }
