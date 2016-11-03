@@ -1,4 +1,4 @@
-class CreateShoppeProductCategoryTranslationTable < ActiveRecord::Migration
+class CreateShoppeProductCategoryTranslationTable < ActiveRecord::Migration[5.0]
   def up
     Shoppe::ProductCategory.create_translation_table! name: :string, permalink: :string, description: :text
 

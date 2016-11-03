@@ -1,5 +1,5 @@
 module Shoppe
-  class User < ActiveRecord::Base
+  class User < ApplicationRecord
     self.table_name = 'shoppe_users'
 
     has_secure_password

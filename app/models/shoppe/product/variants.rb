@@ -1,5 +1,5 @@
 module Shoppe
-  class Product < ActiveRecord::Base
+  class Product < ApplicationRecord
     # Validations
     validate { errors.add :base, :can_belong_to_root if parent && parent.parent }
 

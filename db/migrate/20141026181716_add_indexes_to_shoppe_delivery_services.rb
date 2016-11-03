@@ -1,4 +1,4 @@
-class AddIndexesToShoppeDeliveryServices < ActiveRecord::Migration
+class AddIndexesToShoppeDeliveryServices < ActiveRecord::Migration[5.0]
   def change
     add_index :shoppe_delivery_services, :active
     add_index :shoppe_delivery_service_prices, :delivery_service_id

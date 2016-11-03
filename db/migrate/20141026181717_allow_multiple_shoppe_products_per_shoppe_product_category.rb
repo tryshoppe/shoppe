@@ -1,4 +1,4 @@
-class AllowMultipleShoppeProductsPerShoppeProductCategory < ActiveRecord::Migration
+class AllowMultipleShoppeProductsPerShoppeProductCategory < ActiveRecord::Migration[5.0]
   def up
     # create our join table first before we migrate
     # we have an id to allow :restrict_with_exception on product_category

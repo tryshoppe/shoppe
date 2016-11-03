@@ -1,5 +1,5 @@
 module Shoppe
-  class DeliveryServicePrice < ActiveRecord::Base
+  class DeliveryServicePrice < ApplicationRecord
     # Set the table name
     self.table_name = 'shoppe_delivery_service_prices'
 

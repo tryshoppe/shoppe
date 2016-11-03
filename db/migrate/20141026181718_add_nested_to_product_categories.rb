@@ -1,4 +1,4 @@
-class AddNestedToProductCategories < ActiveRecord::Migration
+class AddNestedToProductCategories < ActiveRecord::Migration[5.0]
   def up
     add_column :shoppe_product_categories, :parent_id, :integer
     add_column :shoppe_product_categories, :lft, :integer

@@ -1,5 +1,5 @@
 module Shoppe
-  class Order < ActiveRecord::Base
+  class Order < ApplicationRecord
     # The associated delivery service
     #
     # @return [Shoppe::DeliveryService]

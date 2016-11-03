@@ -1,7 +1,7 @@
 require 'awesome_nested_set'
 
 module Shoppe
-  class ProductCategory < ActiveRecord::Base
+  class ProductCategory < ApplicationRecord
     # Allow the nesting of product categories
     # :restrict_with_exception relies on a fix to the awesome_nested_set gem
     # which has been referenced in the Gemfile as we can't add a dependency

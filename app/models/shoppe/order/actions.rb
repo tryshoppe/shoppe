@@ -1,5 +1,5 @@
 module Shoppe
-  class Order < ActiveRecord::Base
+  class Order < ApplicationRecord
     extend ActiveModel::Callbacks
 
     # These additional callbacks allow for applications to hook into other

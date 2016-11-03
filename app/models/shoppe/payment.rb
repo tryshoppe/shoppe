@@ -1,5 +1,5 @@
 module Shoppe
-  class Payment < ActiveRecord::Base
+  class Payment < ApplicationRecord
     # Additional callbacks
     extend ActiveModel::Callbacks
     define_model_callbacks :refund

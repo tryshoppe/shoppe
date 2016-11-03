@@ -1,7 +1,7 @@
 require 'ostruct'
 
 module Shoppe
-  class Setting < ActiveRecord::Base
+  class Setting < ApplicationRecord
     # Validations
     validates :key, presence: true, uniqueness: true
     validates :value, presence: true

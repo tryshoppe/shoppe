@@ -1,4 +1,4 @@
-class CreateShoppeAddresses < ActiveRecord::Migration
+class CreateShoppeAddresses < ActiveRecord::Migration[5.0]
   def change
     create_table :shoppe_addresses do |t|
       t.belongs_to :customer, index: true

@@ -1,4 +1,4 @@
-class CreateShoppePayments < ActiveRecord::Migration
+class CreateShoppePayments < ActiveRecord::Migration[5.0]
   def up
     create_table :shoppe_payments do |t|
       t.integer :order_id

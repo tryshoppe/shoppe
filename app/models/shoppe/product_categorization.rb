@@ -1,5 +1,5 @@
 module Shoppe
-  class ProductCategorization < ActiveRecord::Base
+  class ProductCategorization < ApplicationRecord
     self.table_name = 'shoppe_product_categorizations'
 
     # Links back

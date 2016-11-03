@@ -1,5 +1,5 @@
 module Shoppe
-  class Customer < ActiveRecord::Base
+  class Customer < ApplicationRecord
     EMAIL_REGEX = /\A\b[A-Z0-9\.\_\%\-\+]+@(?:[A-Z0-9\-]+\.)+[A-Z]{2,6}\b\z/i
     PHONE_REGEX = /\A[+?\d\ \-x\(\)]{7,}\z/
 

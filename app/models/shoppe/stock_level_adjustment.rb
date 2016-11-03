@@ -1,5 +1,5 @@
 module Shoppe
-  class StockLevelAdjustment < ActiveRecord::Base
+  class StockLevelAdjustment < ApplicationRecord
     # The orderable item which the stock level adjustment belongs to
     belongs_to :item, polymorphic: true
 

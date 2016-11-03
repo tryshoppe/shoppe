@@ -1,5 +1,5 @@
 module Shoppe
-  class DeliveryService < ActiveRecord::Base
+  class DeliveryService < ApplicationRecord
     self.table_name = 'shoppe_delivery_services'
 
     # Validations
