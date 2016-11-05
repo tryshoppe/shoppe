@@ -28,7 +28,7 @@ module Shoppe
       self.password = SecureRandom.hex(8)
       self.password_confirmation = password
       save!
-      Shoppe::UserMailer.new_password(self).deliver
+      Shoppe.mailer.new_password(self).deliver
     end
 
     # Attempt to authenticate a user based on email & password. Returns the
