@@ -50,7 +50,35 @@ module Shoppe
     def settings_groups
       @settings_groups ||= {}
     end
+
+    class Getter
+      def initialize(name)
+        @name = name
+      end
+
+      def get
+        ActiveSupport::Dependencies.constantize(@name)
+      end
+    end
+
+    # Allow pre-load configuration by using a shoppe.rb file in the config/initializers directory of the host app
+    def setup
+      yield self
+    end
+
+    # Get the mailer class from the mailer reference object.
+    def mailer
+      @mailer_ref.get
+    end
+
+    # Set the mailer reference object to access the mailer.
+    def mailer=(class_name)
+      ActiveSupport::Dependencies.reference(class_name)
+      @mailer_ref = Getter.new(class_name)
+    end
   end
+
+  self.mailer = "Shoppe::Mailer"
 end
 
 # Start your engines.
