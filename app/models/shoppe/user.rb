@@ -1,7 +1,5 @@
 module Shoppe
   class User < ActiveRecord::Base
-    self.table_name = 'shoppe_users'
-
     has_secure_password
 
     # Validations
@@ -28,7 +26,7 @@ module Shoppe
       self.password = SecureRandom.hex(8)
       self.password_confirmation = password
       save!
-      Shoppe::UserMailer.new_password(self).deliver
+      Shoppe::UserMailer.new_password(self).deliver_later
     end
 
     # Attempt to authenticate a user based on email & password. Returns the

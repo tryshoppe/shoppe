@@ -14,6 +14,10 @@ require 'nifty/dialog'
 require 'carrierwave'
 
 module Shoppe
+  def self.table_name_prefix
+    'shoppe_'
+  end
+  
   class << self
     # The path to the root of the Shoppe application
     #

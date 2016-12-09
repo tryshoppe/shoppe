@@ -1,7 +1,5 @@
 module Shoppe
   class DeliveryService < ActiveRecord::Base
-    self.table_name = 'shoppe_delivery_services'
-
     # Validations
     validates :name, presence: true
     validates :courier, presence: true
