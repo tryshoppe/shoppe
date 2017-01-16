@@ -17,7 +17,7 @@
         %th(colspan='3')
           = t('shoppe.product_category.product_categories')
           - options = options_for_select(nested_set_options(Shoppe::ProductCategory) {|i| "#{'-' * i.level} #{i.name}" }, params[:category_id] )
-          = select_tag 'parent_id', options, { onchange: "window.location.href='#{products_url}/?category_id=' + $(this).val() + ''"}
+          = select_tag 'parent_id', options, { prompt: t('shoppe.please_select'), onchange: "window.location.href='#{products_url}/?category_id=' + $(this).val() + ''"}
     %tbody
       - if products.empty?
         %tr.empty
