@@ -1,6 +1,9 @@
 pt-BR:
   activerecord:
     models:
+      shoppe/address:
+        one: Endereço
+        other: Endereços
       shoppe/country:
         one: País
         other: Países
@@ -42,6 +45,14 @@ pt-BR:
         other: Usuários
 
     attributes:
+      shoppe/address:
+        address_type: Tipo do endereço
+        address1: Logradouro
+        address2: Bairro
+        address3: Cidade
+        address4: Estado
+        postcode: CEP
+        country: País	
       shoppe/order:
         billing_address1: Endereço de cobrança1
         billing_address3: Endereço de cobrança3
@@ -119,6 +130,10 @@ pt-BR:
           many: ! '%{count} erros proibiram este %{model} de ser salvo'
           other: ! '%{count} erros proibiram este %{model} de ser salvo'
       models:
+        shoppe/product_category:
+          attributes:
+            permalink:
+              wrong_format: "deve conter apenas letras, números, - e _"	  
         shoppe/delivery:
           attributes:
             delivery_service_id:
@@ -130,13 +145,27 @@ pt-BR:
               must_be_specified: precisa ser especificado
         shoppe/product:
           attributes:
+            permalink:
+              wrong_format: "pode conter apenas letras, número, - e _"		  
             base:
               can_belong_to_root: pode pertencer apenas ao produto principal
         shoppe/order_item:
           attributes:
-            too_high_quantity: é muito alta para a quantidade em estoque
+            quantity:		  
+              too_high_quantity: é maior que a quantidade em estoque
         shoppe/payment:
           refund_failed: "Devoluções precisam ser menores que o pagamento (%{refundable_amount})"
+        shoppe/user:
+          attributes:
+            email_address:
+              blank: não pode ficar em branco
+              taken: já está em uso
+            first_name:
+              blank: não pode ficar em branco
+            last_name:
+              blank: não pode ficar em branco
+            password:
+              blank: não pode ficar em branco
 
   will_paginate:
     next_label: "Próxima &#8594;"
@@ -176,8 +205,68 @@ pt-BR:
     close: Fechar
     delete: Deletar
     edit: Editar
-    import: Importação
+    import: Importar
     remove: Remover
+
+    please_select: Por favor, selecione
+    removed_it: "%{it} removido com sucesso"
+    save_settings: Salvar configurações
+    separate_delivery_address: Endereço para entrega separado
+    service_available: O serviço estará disponível para uso
+    service_default: O serviço será usado por padrão (se possível)
+    settings_title: Configurações
+    settings_not_in_demo: Você não pode alterar configurações em modo de demonstração. Desculpe por isso.
+    set_prices: Definir Preços
+    shoppe_back: Voltar para o Shoppe
+    sku: SKU
+    status: Status
+    stock: Estoque
+    stock_current: O nível atual de estoque é
+    stock_control: Controle de Estoque
+    stock_control_enable: Habilitar controle de estoque para este produto?
+    stock_levels: Níveis de Estoque
+    stock_levels_for: Níveis de estoque %{item}
+    stock_none: Sem estoque
+    system_settings: Configurações de sistema
+    tax_rate: Taxa de imposto
+    tax_rate_apply_to: Aplicar a pedidos onde %{to} corresponde a um dos países abaixo
+    tax_rate_delete_confirm: Tem certeza de que deseja remover esta taxa de imposto?
+    tax_rate_details: Detalhes da Taxa
+    tax_rate_new: Nova taxa de imposto
+    tax_rate_note: NÃO edite as taxas de imposto que já estão em uso.
+      Deve-se ter cuidado ao editar taxas de imposto, pois isso pode afetar as ordens existentes.
+      Ao criar uma nova taxa de imposto, você deve excluí-la e criar uma nova. Quando você exclui uma taxa de imposto,
+      ela não é removida do sistema, somente desativada, para que as ordens existentes permaneçam inalteradas.
+    tax_rates: Taxas de imposto
+    tax_rates_back: Voltar para Taxas de imposto
+    tax_none: Nenhum imposto
+    telephone: Telefone
+    total: Total
+    total_weight: Peso total
+    tracking_url: URL de rastreamento
+    unknown: Desconhecido
+    updated_it: "%{it} foi atualizado com sucesso"
+    users: Usuários
+    users_back: Voltar para usuários
+    user_delete_confirm: Tem certeza de que deseja remover este usuário?
+    user_details: Detalhes do usuário
+    user: Usuários
+    user_edit: Editar usuário
+    user_new: Novo usuário
+    user_not_in_demo: Você não pode fazer alterações nos usuários no modo de demonstração. Desculpe por isso.
+    user_not_yourself: Você não pode se remover
+    variants: Variantes
+    variants_back: Voltar para variantes
+    variants_of: Variantes de %{product}
+    variant_delete_confirm: Tem certeza de que deseja remover esta variante?
+    variant_of: Variante de %{product}
+    variant_new: Nova variante
+    variant_save: Salvar variante
+    value: Valor
+    website_properties: Propriedades do Website
+    weight: Peso
+    weight_allowance: Tolerância de peso
+
     submit: Submeter
 
     attachments:
@@ -302,7 +391,7 @@ pt-BR:
       notes: Anotações
       number: Número
       order: Pedido
-      order_accepted: Pedido Aceitado
+      order_accepted: Pedido Aceito
       order_balance: Balanço do Pedido
       order_items: Itens do Pedido
       order_no_html: "Pedido <b>#%{order_number}</b>"
@@ -334,6 +423,7 @@ pt-BR:
       select_country: Selecione um país
       separate_delivery_address: Endereço de entrega separado
       ship_notice: O Pedido foi enviado com sucesso
+      select_customer: Selecione um cliente ou deixe em branco
       sku: SKU
       sla_warning: Qualquer mudanças nas quantidades vai atualizar o nível de estoque apropriado para o produto associado.
       status: Status
@@ -369,7 +459,7 @@ pt-BR:
         weight: Peso
 
       statuses:
-        accepted: Aceitado
+        accepted: Aceito
         building: Construindo
         confirming: Confirmando
         received: Recebido
@@ -385,21 +475,22 @@ pt-BR:
       delete_confirmation: Você tem certeza que deseja remover esta categoria?
       description: Descrição
       destroy_notice: A Categoria foi removida com sucesso
+      destroy_alert: A Categoria não pode ser removida
       image: Imagem
       name: Nome
       new_category: Nova categoria
       no_categories: Nenhuma categoria para mostrar.
       permalink: Permalink
-      permalink_includes_ancestors: Prefix links in store with ancestor categories
+      permalink_includes_ancestors: Prefixar links na loja com categorias ancestrais
       product_categories: Categorias de Produto
       update_notice: A Categoria foi atualizada com sucesso
       nesting:
-        blank_option: None
-        category_nesting: Nesting
-        category_parent: Parent
-        current_category: Current
-        no_children: No Children
-        hierarchy: Hierarchy
+        blank_option: Nenhum
+        category_nesting: Aninhamento
+        category_parent: Pai
+        current_category: Atual
+        no_children: Nenhum filho
+        hierarchy: Hierarquia
 
     products:
       add_attachments: Visualizar/adicionar anexos
@@ -417,7 +508,7 @@ pt-BR:
       enable_stock_control?:  Ativar controle de estoque para este produto?
       featured?: Oferta?
       featured_info:  Se sim, este produto será mostrado na página inicial
-      import_products: Produto importado
+      import_products: Importar Produtos
       in_the_box: O que a caixa contém?
       name: Nome
       new_product: Novo produto
@@ -447,6 +538,10 @@ pt-BR:
       update_notice: O Produto foi atualizado com sucesso
       website_properties: Propriedades do Site
       weight: Peso
+
+      filter:
+        sku: filtrar por sku
+        name_or_description: filtrar por nome do produto ou descrição
 
       imports:
         help: Products and Categories are matched by name.  If no product is found, a new one will be created with all the attributes on the line.  If a product is found, only the quantity will be updated and all other fields will be ignored.  If no category is found, one with that name will be created .  One product per line. Você pode deixar permalink campo vazio se você não quiser adicionar um e para ser gerado automaticamente.
@@ -599,6 +694,66 @@ pt-BR:
       updated_successfully: Address has been updated successfully.
       deleted_successfully: Address has been deleted successfully.
 
+    localisations:
+      localisations: localizações
+      back: Voltar
+      back_to_localisations: Voltar para localizações
+      localisations_of: Localizações de %{name}
+      product_information: Informação do Produto
+      locales: Locais
+      choose_locale: Por favor, escolha um local
+      save_localisation: Save Localização
+      new_localisation: New Localização
+      edit_localisation: Editar Localização
+      localisation_created: Localização criada com successo
+      localisation_updated: Localização atualizada com successo
+      localisation_destroyed: Localização removida com successo
+      language: Idioma
+      no_localisations: Nenhuma localização para exibir.
+      delete_confirmation: Você tem certeza?
+
+    customers:
+      customers: Clientes
+      new_customer: Novo cliente
+      search_customer: Pesquisar cliente
+      name: Nome
+      company: Empresa
+      email: E-Mail
+      phone: Telefone
+      mobile_phone: Celular
+      no_customers: Nenhum cliente para exibir.
+      search: Pesquisar
+      first_or_last_name: Primeiro ou último nome
+      back_to_customers_list: Voltar para lista de clientes
+      new_address: Novo endereço
+      edit: Editar
+      customer_information: Informações do Cliente
+      cancel: Cancelar
+      first_name: Primeiro nome
+      last_name: Último name
+      delete: Remover
+      save: Salvar
+      creating_customer: Criando Cliente...
+      updating_customer: Atualizado Cliente...
+      delete_confirmation: Tem certeza de que deseja remover esse cliente?
+      type: Tipo
+      default: Padrão
+      address: Endereço
+      no_addresses: Nenhum endereço para exibir.
+      addresses: Endereços
+      adresse: Endereço
+      created_successfully: Cliente criado com successo.
+      updated_successfully: Cliente atualizado com sucesso.
+      deleted_successfully: Cliente removido com sucesso.
+
+    addresses:
+      address_information: Informação de Endereço
+      back_to_customer: Voltar para cliente
+      addresses: Novo Endereço
+      created_successfully: Endereço criado com successo.
+      updated_successfully: Endereço atualizado com sucesso.
+      deleted_successfully: Endereço removido com sucesso.
+
     navigation:
       admin_primary:
         orders: Pedidos
@@ -660,3 +815,10 @@ pt-BR:
         goto: Ir para
         logged_in_as: "Acessando como %{user_name}"
         logout: Sair
+#  time:
+#    am: ''
+#    formats:
+#      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+#      long: "%d de %B de %Y, %H:%M"
+#      short: "%d de %B, %H:%M"
+#    pm: ''

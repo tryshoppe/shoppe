@@ -155,6 +155,17 @@ en:
               too_high_quantity: is too high for the quantity in stock
         shoppe/payment:
           refund_failed: "Refunds must be less than the payment (%{refundable_amount})"
+        shoppe/user:
+          attributes:
+            email_address:
+              taken: Already taken
+              blank: can't be blank
+            last_name:
+              blank: can't be blank
+            first_name:
+              blank: can't be blank
+            password:
+              blank: can't be blank
 
   will_paginate:
     next_label: "Next &#8594;"
@@ -196,7 +207,9 @@ en:
     edit: Edit
     import: Import
     remove: Remove
+    submit: Submit
 
+    please_select: Please select
     removed_it: "%{it} has been removed successfully"
     save_settings: Save Settings
     separate_delivery_address: Separate delivery address
