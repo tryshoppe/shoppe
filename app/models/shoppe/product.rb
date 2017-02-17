@@ -39,12 +39,12 @@ module Shoppe
     with_options if: proc { |p| p.parent.nil? } do |product|
       product.validate :has_at_least_one_product_category
       product.validates :description, presence: true
-      product.validates :short_description, presence: true
+      # product.validates :short_description, presence: true
     end
     validates :name, presence: true
-    validates :permalink, presence: true, uniqueness: true, permalink: true
+    # validates :permalink, presence: true, uniqueness: true, permalink: true
     validates :sku, presence: true
-    validates :weight, numericality: true
+    # validates :weight, numericality: true
     validates :price, numericality: true
     validates :cost_price, numericality: true, allow_blank: true
 
@@ -167,17 +167,25 @@ module Shoppe
           end
         else
           product = new
-          product.name = row['name']
-          product.sku = row['sku']
-          product.description = row['description']
-          product.short_description = row['short_description']
-          product.weight = row['weight']
-          product.price = row['price'].nil? ? 0 : row['price']
-          product.permalink = row['permalink']
+          product.name = row["name"]
+          product.sku = row["sku"]
+          product.description = row["description"]
+          product.short_description = row["short_description"]
+          product.weight = row["weight"]
+          product.price = row["price"].nil? ? 0 : row["price"]
+          product.permalink  = row["permalink"]
 
           product.product_categories << begin
-            Shoppe::ProductCategory.find_or_initialize_by(name: row['category_name'])
+            # Shoppe::ProductCategory.find_or_initialize_by(name: row['category_name'])
+            category = Shoppe::ProductCategory.where(name: row["category_name"]) || []
+            if category.present?
+              category.first
+            else
+              Shoppe::ProductCategory.create(name: row["category_name"])
+            end
           end
+          product.image_url = row["image_url"] if row["image_url"].present?
+          product.stock_control = false # disabling stock control
           
           product.save!
 
@@ -191,7 +199,7 @@ module Shoppe
 
     def self.open_spreadsheet(file)
       case File.extname(file.original_filename)
-      when '.csv' then Roo::CSV.new(file.path)
+      when '.csv' then Roo::CSV.new(file.path, csv_options: {col_sep: "|"})
       when '.xls' then Roo::Excel.new(file.path)
       when '.xlsx' then Roo::Excelx.new(file.path)
       else fail I18n.t('shoppe.imports.errors.unknown_format', filename: File.original_filename)

@@ -106,18 +106,6 @@
           %dt= f.label :tax_rate_id, t('shoppe.products.tax_rate')
           %dd= f.collection_select :tax_rate_id, Shoppe::TaxRate.ordered, :id, :description, {:include_blank => true}, {:class => 'chosen-with-deselect', :data => {:placeholder => t('shoppe.products.no_tax')}}
 
-    = field_set_tag  t('shoppe.products.stock_control') do
-      .splitContainer
-        %dl.half
-          %dt= f.label :weight, t('shoppe.products.weight')
-          %dd= f.text_field :weight, :class => 'text'
-
-        %dl.half
-          %dt= f.label :stock_control,  t('shoppe.products.stock_control')
-          %dd.checkbox
-            = f.check_box :stock_control
-            = f.label :stock_control, t('shoppe.products.enable_stock_control?')
-
   = field_set_tag  t('shoppe.products.website_properties') do
     .splitContainer
       %dl.half
