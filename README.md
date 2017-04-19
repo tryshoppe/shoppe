@@ -30,9 +30,9 @@ instructions below and you'll be up and running in minutes.
     cd my_store
     echo "gem 'shoppe'" >> Gemfile
     bundle
-    rails generate shoppe:setup
+    rails generate shopr:setup
     rails generate nifty:key_value_store:migration
-    rake db:migrate shoppe:setup
+    rake db:migrate shopr:setup
     rails server
 
 ## Contribution
